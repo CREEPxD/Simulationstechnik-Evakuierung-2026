@@ -132,49 +132,33 @@
 
 			<EmbeddedObjects>
 				<EmbeddedObject>
-					<Id>1772029177335</Id>
-					<Name><![CDATA[room]]></Name>
-					<X>130</X><Y>40</Y>
-					<Label><X>-20</X><Y>-30</Y></Label>
+					<Id>1772114048621</Id>
+					<Name><![CDATA[floor_E1]]></Name>
+					<X>160</X><Y>-10</Y>
+					<Label><X>-30</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<PresentationId>1772029180726</PresentationId>
+					<PresentationId>1772114052300</PresentationId>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Room]]></ClassName>
+						<ClassName><![CDATA[Floor_E1]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
 							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Room]]></ClassName>
-							<ItemName><![CDATA[1772025927402]]></ItemName>
+							<ClassName><![CDATA[Floor_E1]]></ClassName>
+							<ItemName><![CDATA[1772036615822]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
-						<Parameter>
-							<Name><![CDATA[isActive]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[initialPeople]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[hight]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[width]]></Name>
-						</Parameter>
 					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
+					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
-						<Code><![CDATA[1]]></Code>
+						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
 					<InEnvironment>true</InEnvironment>
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-					</InitialSpeedCode>
 					<InitialLocationType>XYZ</InitialLocationType>
 					<ColumnCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
@@ -185,39 +169,15 @@
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
-					<InitializationType>LOAD_FROM_DATABASE</InitializationType>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
 					<InitializationDatabaseTableQuery>
-						<Id>1772029177333</Id>
+						<Id>1772114048619</Id>
 						<TableReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[room_positions]]></ClassName>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
 					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
 					<QuantityColumn>
 					</QuantityColumn>
-					<ParameterToDatabaseColumnMapping>
-						<Item>
-							<Key>
-								FAKE_PARAMETER_LOCATION_X_xjal
-							</Key>
-							<Value>
-								<PackageName><![CDATA[evakuierung]]></PackageName>
-								<ClassName><![CDATA[room_positions]]></ClassName>
-								<ItemName><![CDATA[room_x]]></ItemName>
-							</Value>
-						</Item>
-						<Item>
-							<Key>
-								FAKE_PARAMETER_LOCATION_Y_xjal
-							</Key>
-							<Value>
-								<PackageName><![CDATA[evakuierung]]></PackageName>
-								<ClassName><![CDATA[room_positions]]></ClassName>
-								<ItemName><![CDATA[room_y]]></ItemName>
-							</Value>
-						</Item>
-					</ParameterToDatabaseColumnMapping>
 				</EmbeddedObject>
 			</EmbeddedObjects>
 
@@ -235,32 +195,10 @@
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
-				<Image>
-					<Id>1771947003790</Id>
-					<Name><![CDATA[image]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Width>1300</Width>
-					<Height>270</Height>
-					<Rotation>0.0</Rotation>
-					<ImageFiles>
-						<ImageResourceReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[IC_Standard_Geschoss.png]]></ClassName>
-						</ImageResourceReference>
-					</ImageFiles>
-					<OriginalSize>false</OriginalSize>
-				</Image>
 				<EmbeddedObjectPresentation>
-					<Id>1772029180726</Id>
-					<Name><![CDATA[room_presentation]]></Name>
-					<X>174</X><Y>90</Y>
+					<Id>1772114052300</Id>
+					<Name><![CDATA[floor_E1_presentation]]></Name>
+					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -565,9 +503,22 @@ if (isActive) spawnInitial();]]></StartupCode>
 
 			<ContainerLinks>
 				<ContainerLink>
-					<Id>1772029180729</Id>
+					<Id>1772113480645</Id>
+					<Name><![CDATA[floor_E1]]></Name>
+					<X>150</X><Y>-150</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E1]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+				<ContainerLink>
+					<Id>1772114052305</Id>
 					<Name><![CDATA[main]]></Name>
-					<X>50</X><Y>-100</Y>
+					<X>250</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1334,6 +1285,131 @@ if (isActive) spawnInitial();]]></StartupCode>
 				</AgentLink>
 			</AgentLinks>
 
+			<ContainerLinks>
+				<ContainerLink>
+					<Id>1772114052303</Id>
+					<Name><![CDATA[main]]></Name>
+					<X>50</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Main]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+			</ContainerLinks>
+			<EmbeddedObjects>
+				<EmbeddedObject>
+					<Id>1772113477383</Id>
+					<Name><![CDATA[rooms]]></Name>
+					<X>290</X><Y>-50</Y>
+					<Label><X>-20</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1772113480638</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Room]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[evakuierung]]></PackageName>
+							<ClassName><![CDATA[Room]]></ClassName>
+							<ItemName><![CDATA[1772025927402]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[isActive]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[initialPeople]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[hight]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[width]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>true</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>LOAD_FROM_DATABASE</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1772113477381</Id>
+						<TableReference>
+							<PackageName><![CDATA[evakuierung]]></PackageName>
+							<ClassName><![CDATA[room_positions]]></ClassName>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+					<ParameterToDatabaseColumnMapping>
+						<Item>
+							<Key>
+								FAKE_PARAMETER_LOCATION_X_xjal
+							</Key>
+							<Value>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[room_positions]]></ClassName>
+								<ItemName><![CDATA[room_x]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								FAKE_PARAMETER_LOCATION_Y_xjal
+							</Key>
+							<Value>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[room_positions]]></ClassName>
+								<ItemName><![CDATA[room_y]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[Room]]></ClassName>
+								<ItemName><![CDATA[hight]]></ItemName>
+							</Key>
+							<Value>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[room_positions]]></ClassName>
+								<ItemName><![CDATA[hight]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[Room]]></ClassName>
+								<ItemName><![CDATA[width]]></ItemName>
+							</Key>
+							<Value>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[room_positions]]></ClassName>
+								<ItemName><![CDATA[width]]></ItemName>
+							</Value>
+						</Item>
+					</ParameterToDatabaseColumnMapping>
+				</EmbeddedObject>
+			</EmbeddedObjects>
 
 			<Presentation>
 				<Level>
@@ -4951,6 +5027,24 @@ if (isActive) spawnInitial();]]></StartupCode>
 						<Point><X>-20</X><Y>45</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
+				<EmbeddedObjectPresentation>
+					<Id>1772113480638</Id>
+					<Name><![CDATA[rooms_presentation]]></Name>
+					<X>254</X><Y>13.001</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>0.0</Latitude>
+					<Longitude>0.0</Longitude>
+				</EmbeddedObjectPresentation>
 			</Presentation>
 
 				</Level>
