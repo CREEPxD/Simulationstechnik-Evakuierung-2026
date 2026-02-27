@@ -132,14 +132,14 @@
 
 			<EmbeddedObjects>
 				<EmbeddedObject>
-					<Id>1772114048621</Id>
-					<Name><![CDATA[floor_E1]]></Name>
-					<X>160</X><Y>-10</Y>
+					<Id>1772225058663</Id>
+					<Name><![CDATA[floor_E1_6]]></Name>
+					<X>370</X><Y>-60</Y>
 					<Label><X>-30</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<PresentationId>1772114052300</PresentationId>
+					<PresentationId>1772225063174</PresentationId>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
@@ -159,6 +159,10 @@
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
 					<InEnvironment>true</InEnvironment>
+					<InitialSpeedCode Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+					</InitialSpeedCode>
 					<InitialLocationType>XYZ</InitialLocationType>
 					<ColumnCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
@@ -171,7 +175,7 @@
 					</LocationNameCode>
 					<InitializationType>LOAD_FROM_DATABASE</InitializationType>
 					<InitializationDatabaseTableQuery>
-						<Id>1772114048619</Id>
+						<Id>1772225058661</Id>
 						<TableReference>
 							<PackageName><![CDATA[evakuierung]]></PackageName>
 							<ClassName><![CDATA[floor_positions]]></ClassName>
@@ -183,63 +187,15 @@
 					<ParameterToDatabaseColumnMapping>
 						<Item>
 							<Key>
-								FAKE_PARAMETER_LOCATION_Y_xjal
+								FAKE_PARAMETER_LOCATION_Z_xjal
 							</Key>
 							<Value>
 								<PackageName><![CDATA[evakuierung]]></PackageName>
 								<ClassName><![CDATA[floor_positions]]></ClassName>
-								<ItemName><![CDATA[floor_y]]></ItemName>
+								<ItemName><![CDATA[floor_z]]></ItemName>
 							</Value>
 						</Item>
 					</ParameterToDatabaseColumnMapping>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1772125401236</Id>
-					<Name><![CDATA[floor_E6]]></Name>
-					<X>240</X><Y>-10</Y>
-					<Label><X>-30</X><Y>-30</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<PresentationId>1772125404872</PresentationId>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E6]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Floor_E6]]></ClassName>
-							<ItemName><![CDATA[1772043040805]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1772125401234</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
 				</EmbeddedObject>
 			</EmbeddedObjects>
 
@@ -257,52 +213,6 @@
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
 			<Presentation>
-				<EmbeddedObjectPresentation>
-					<Id>1772114052300</Id>
-					<Name><![CDATA[floor_E1_presentation]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
-					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
-					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>0.0</Latitude>
-					<Longitude>0.0</Longitude>
-				</EmbeddedObjectPresentation>
-				<Wall>
-					<Id>1772117767161</Id>
-					<Name><![CDATA[wall]]></Name>
-					<X>295</X><Y>10</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-3308225</LineColor>
-					<LineWidth>2</LineWidth>
-					<LineMaterial>null</LineMaterial>
-					<FillingType>HATCHED_AREA</FillingType>
-					<ZHeight>20</ZHeight>
-					<Closed>false</Closed>
-					<Points>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>60</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>35</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>70</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>60</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>80</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>40</X><Y>0</Y><Z>0</Z></Point>
-					</Points>
-				</Wall>
 				<Wall>
 					<Id>1772117786793</Id>
 					<Name><![CDATA[wall1]]></Name>
@@ -699,9 +609,9 @@
 					</Points>
 				</Wall>
 				<EmbeddedObjectPresentation>
-					<Id>1772125404872</Id>
-					<Name><![CDATA[floor_E6_presentation]]></Name>
-					<X>0</X><Y>1350</Y>
+					<Id>1772225063174</Id>
+					<Name><![CDATA[floor_E1_6_presentation]]></Name>
+					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -821,7 +731,7 @@
 				<Variable Class="Parameter">
 					<Id>1772025927406</Id>
 					<Name><![CDATA[isActive]]></Name>
-					<X>160</X><Y>-95</Y>
+					<X>160</X><Y>-98</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -845,7 +755,53 @@
 				<Variable Class="Parameter">
 					<Id>1772025927409</Id>
 					<Name><![CDATA[initialPeople]]></Name>
-					<X>251</X><Y>-95</Y>
+					<X>251</X><Y>-98</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="DatabaseQueryCodeValue">
+							<Type>SELECT_UNIQUE_VALUE</Type>
+							<Id>1772227048329</Id>
+							<TableReference>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[room_types]]></ClassName>
+							</TableReference>
+							<Condition>
+								<Id>1772227524458</Id>
+								<ColumnReference>
+									<PackageName><![CDATA[evakuierung]]></PackageName>
+									<ClassName><![CDATA[room_types]]></ClassName>
+									<ItemName><![CDATA[type]]></ItemName>
+								</ColumnReference>
+								<Value Class="CodeValue">
+									<Code><![CDATA[room_type]]></Code>
+								</Value>
+								<Operator>EQUALS</Operator>
+							</Condition>
+							<ColumnReference>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[room_types]]></ClassName>
+								<ItemName><![CDATA[distribution]]></ItemName>
+							</ColumnReference>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1772025927408</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1772226371282</Id>
+					<Name><![CDATA[room_type]]></Name>
+					<X>360</X><Y>-98</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -858,7 +814,7 @@
 							<Code><![CDATA[0]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
-							<Id>1772025927408</Id>
+							<Id>1772226371280</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -928,7 +884,8 @@
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[for (int i=0; i < initialPeople; i++){
+					<Body><![CDATA[System.out.println("spawning "+ initialPeople+" people");
+for (int i=0; i < initialPeople; i++){
 	pedSourceRoom.inject();
 }]]></Body>
 				</Function>
@@ -997,8 +954,8 @@
 					</ActiveObjectClass>
 				</ContainerLink>
 				<ContainerLink>
-					<Id>1772125061077</Id>
-					<Name><![CDATA[floor_E6]]></Name>
+					<Id>1772224384495</Id>
+					<Name><![CDATA[floor_E02]]></Name>
 					<X>350</X><Y>-150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1006,7 +963,7 @@
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E6]]></ClassName>
+						<ClassName><![CDATA[Floor_E02]]></ClassName>
 					</ActiveObjectClass>
 				</ContainerLink>
 			</ContainerLinks>
@@ -1093,6 +1050,10 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[comfortableSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[uniform(0.4, 0.5)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[initialSpeed]]></Name>
@@ -1809,6 +1770,9 @@
 						<Parameter>
 							<Name><![CDATA[initialPeople]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[room_type]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -1860,6 +1824,18 @@
 								<PackageName><![CDATA[evakuierung]]></PackageName>
 								<ClassName><![CDATA[room_positions]]></ClassName>
 								<ItemName><![CDATA[room_y]]></ItemName>
+							</Value>
+						</Item>
+						<Item>
+							<Key>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[Room]]></ClassName>
+								<ItemName><![CDATA[room_type]]></ItemName>
+							</Key>
+							<Value>
+								<PackageName><![CDATA[evakuierung]]></PackageName>
+								<ClassName><![CDATA[room_positions]]></ClassName>
+								<ItemName><![CDATA[room_type]]></ItemName>
 							</Value>
 						</Item>
 					</ParameterToDatabaseColumnMapping>
@@ -5485,7 +5461,7 @@
 				<EmbeddedObjectPresentation>
 					<Id>1772113480638</Id>
 					<Name><![CDATA[rooms_presentation]]></Name>
-					<X>698</X><Y>118</Y>
+					<X>960</X><Y>30</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5500,6 +5476,34 @@
 					<Latitude>0.0</Latitude>
 					<Longitude>0.0</Longitude>
 				</EmbeddedObjectPresentation>
+				<Wall>
+					<Id>1772224957296</Id>
+					<Name><![CDATA[wall97]]></Name>
+					<X>295</X><Y>10</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>60</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>35</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>70</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>60</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>80</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>0</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
 			</Presentation>
 
 				</Level>
@@ -5622,21 +5626,6 @@
 				</AgentLink>
 			</AgentLinks>
 
-			<ContainerLinks>
-				<ContainerLink>
-					<Id>1772125404876</Id>
-					<Name><![CDATA[main]]></Name>
-					<X>50</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-			</ContainerLinks>
 			<EmbeddedObjects>
 				<EmbeddedObject>
 					<Id>1772125058439</Id>
@@ -5664,6 +5653,9 @@
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[initialPeople]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[room_type]]></Name>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
@@ -9200,8 +9192,8 @@
 	<InspectionWindowColorTheme>DEFAULT</InspectionWindowColorTheme>
 	<Frame>
 		<Id>1771946744574</Id>
-		<Width>1320</Width>
-		<Height>1640</Height>
+		<Width>1420</Width>
+		<Height>380</Height>
 	</Frame>
 	<Database>
 		<Id>1771946744573</Id>
