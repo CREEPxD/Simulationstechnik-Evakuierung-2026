@@ -18,12 +18,6 @@
 		<ActiveObjectClass>
 			<Id>1771946744576</Id>
 			<Name><![CDATA[Main]]></Name>
-			<StartupCode><![CDATA[floor_E1_6.get(0).setLevel(level1);
-floor_E1_6.get(1).setLevel(level2);
-floor_E1_6.get(2).setLevel(level3);
-floor_E1_6.get(3).setLevel(level4);
-floor_E1_6.get(4).setLevel(level5);
-floor_E1_6.get(5).setLevel(level6);]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1771946744581</Id>
@@ -249,67 +243,6 @@ floor_E1_6.get(5).setLevel(level6);]]></StartupCode>
 						</Item>
 					</ParameterToDatabaseColumnMapping>
 				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1772327889701</Id>
-					<Name><![CDATA[pedestrian]]></Name>
-					<X>480</X><Y>-110</Y>
-					<Label><X>-35</X><Y>-30</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<PresentationId>1772327893548</PresentationId>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Pedestrian]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Pedestrian]]></ClassName>
-							<ItemName><![CDATA[1772028769382]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[currentFloor]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[x_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[y_pos]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-					</InitialSpeedCode>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>EMPTY</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1772327889699</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
 			</EmbeddedObjects>
 
 			<Presentation>
@@ -369,24 +302,6 @@ floor_E1_6.get(5).setLevel(level6);]]></StartupCode>
 						<LabelText><![CDATA[Evacuate!]]></LabelText>
 					</ExtendedProperties>
 				</Control>
-				<EmbeddedObjectPresentation>
-					<Id>1772327893548</Id>
-					<Name><![CDATA[pedestrian_presentation]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
-					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
-					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>0.0</Latitude>
-					<Longitude>0.0</Longitude>
-				</EmbeddedObjectPresentation>
 			</Presentation>
 
 				</Level>
@@ -700,7 +615,7 @@ if (isActive){
 					</Points>
 				</Connector>
 				<Connector>
-					<Id>1772324166755</Id>
+					<Id>1772378216031</Id>
 					<Name><![CDATA[connector2]]></Name>
 					<X>270</X><Y>150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
@@ -758,7 +673,7 @@ if (isActive){
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[for (Pedestrian ped : new ArrayList<>(waiting)){
+					<Body><![CDATA[for (Pedestrian ped : waiting){
 	pedWaitForAlarm.free(ped);
 }]]></Body>
 				</Function>
@@ -1020,13 +935,13 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 						<Parameter>
 							<Name><![CDATA[population]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[main.pedestrian]]></Code>
+								<Code><![CDATA[pedestriansInRoom]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.currentFloor = (Floor) getOwner();]]></Code>
+								<Code><![CDATA[ped.set_originRoom(this);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1140,6 +1055,9 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onAtExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[waiting.remove(ped);]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -1199,15 +1117,9 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[for(Pedestrian p : waiting){
-	Double x_pos = this.getX()+p.getX();
-	Double y_pos = this.getY()+p.getY();
-	((Floor)getOwner()).pedsX.add(x_pos);
-	((Floor)getOwner()).pedsY.add(y_pos);
-}
-if(!waiting.isEmpty()){
-	((Floor)getOwner()).acceptPedsFromRooms(ped);
-}]]></Code>
+								<Code><![CDATA[Double x_pos = this.getX()+ped.getX();
+Double y_pos = this.getY()+ped.getY();
+((Floor)getOwner()).acceptPedsFromRooms(x_pos, y_pos, ped.originRoom);]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -1229,6 +1141,64 @@ if(!waiting.isEmpty()){
 					<InitializationType>SPECIFIED_NUMBER</InitializationType>
 					<InitializationDatabaseTableQuery>
 						<Id>1772310843807</Id>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1772380752551</Id>
+					<Name><![CDATA[pedestriansInRoom]]></Name>
+					<X>250</X><Y>-30</Y>
+					<Label><X>20</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<PresentationId>1772380757046</PresentationId>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Pedestrian]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[evakuierung]]></PackageName>
+							<ClassName><![CDATA[Pedestrian]]></ClassName>
+							<ItemName><![CDATA[1772028769382]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[x_pos]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[y_pos]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>true</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>
+					<InitialSpeedCode Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+					</InitialSpeedCode>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>EMPTY</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1772380752549</Id>
 						<TableReference>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
@@ -1417,6 +1387,24 @@ if(!waiting.isEmpty()){
 					<Height>35</Height>
 					<Rotation>0.0</Rotation>
 				</RectangleNode>
+				<EmbeddedObjectPresentation>
+					<Id>1772380757046</Id>
+					<Name><![CDATA[pedestriansInRoom_presentation]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
+					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
+					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
+					<Latitude>0.0</Latitude>
+					<Longitude>0.0</Longitude>
+				</EmbeddedObjectPresentation>
 			</Presentation>
 
 				</Level>
@@ -1519,33 +1507,9 @@ if(!waiting.isEmpty()){
 			<ConnectionsId>1772028769378</ConnectionsId>
 			<Variables>
 				<Variable Class="Parameter">
-					<Id>1772315390594</Id>
-					<Name><![CDATA[currentFloor]]></Name>
-					<X>190</X><Y>-60</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
-						<Type><![CDATA[Floor]]></Type>
-						<UnitType><![CDATA[NONE]]></UnitType>
-						<SdArray>false</SdArray>
-						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[null]]></Code>
-						</DefaultValue>
-						<ParameterEditor>
-							<Id>1772315390592</Id>
-							<EditorContolType>TEXT_BOX</EditorContolType>
-							<MinSliderValue><![CDATA[0]]></MinSliderValue>
-							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
-							<DelimeterType>NO_DELIMETER</DelimeterType>
-						</ParameterEditor>
-					</Properties>                 
-				</Variable>
-				<Variable Class="Parameter">
 					<Id>1772335932842</Id>
 					<Name><![CDATA[x_pos]]></Name>
-					<X>290</X><Y>-60</Y>
+					<X>180</X><Y>-60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1569,7 +1533,7 @@ if(!waiting.isEmpty()){
 				<Variable Class="Parameter">
 					<Id>1772335951165</Id>
 					<Name><![CDATA[y_pos]]></Name>
-					<X>360</X><Y>-60</Y>
+					<X>250</X><Y>-60</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1615,8 +1579,8 @@ if(!waiting.isEmpty()){
 
 			<ContainerLinks>
 				<ContainerLink>
-					<Id>1772327893552</Id>
-					<Name><![CDATA[main]]></Name>
+					<Id>1772380757051</Id>
+					<Name><![CDATA[floor_E02]]></Name>
 					<X>50</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
@@ -1624,7 +1588,46 @@ if(!waiting.isEmpty()){
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E02]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+				<ContainerLink>
+					<Id>1772380757053</Id>
+					<Name><![CDATA[floor_E1]]></Name>
+					<X>150</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E1]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+				<ContainerLink>
+					<Id>1772380757055</Id>
+					<Name><![CDATA[main]]></Name>
+					<X>250</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
+					</ActiveObjectClass>
+				</ContainerLink>
+				<ContainerLink>
+					<Id>1772380757057</Id>
+					<Name><![CDATA[room]]></Name>
+					<X>350</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Room]]></ClassName>
 					</ActiveObjectClass>
 				</ContainerLink>
 			</ContainerLinks>
@@ -1706,6 +1709,28 @@ if(!waiting.isEmpty()){
 				<PackageName><![CDATA[evakuierung]]></PackageName>
 				<ClassName><![CDATA[Floor]]></ClassName>
 			</ExtendsReference>
+			<StartupCode><![CDATA[int i = this.getIndex();
+switch (i){
+	case 0:
+		this.setLevel(main.level1);
+		break;
+	case 1:
+		this.setLevel(main.level2);
+		break;
+	case 2:
+		this.setLevel(main.level3);
+		break;
+	case 3:
+		this.setLevel(main.level4);
+		break;
+	case 4:
+		this.setLevel(main.level5);
+		break;
+	case 5:
+		this.setLevel(main.level6);
+		break;
+}
+System.out.println("Level: "+this.getLevel());]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1772036615822</Id>
@@ -1796,6 +1821,26 @@ if(!waiting.isEmpty()){
 			</ScaleRuler>
 			<CurrentLevel>1772036615823</CurrentLevel>
 			<ConnectionsId>1772036615818</ConnectionsId>
+			<Variables>
+				<Variable Class="CollectionVariable">
+					<Id>1772397633313</Id>
+					<Name><![CDATA[Stairs]]></Name>
+					<X>360</X><Y>-60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Object]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ StairExitL, Stair_L, StairExitR, Stair_R }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+			</Variables>
 			<Connectors>
 				<Connector>
 					<Id>1772308824434</Id>
@@ -1827,13 +1872,13 @@ if(!waiting.isEmpty()){
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-140</X><Y>0</Y></Point>
+						<Point><X>-80</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1772308857865</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>210</X><Y>490</Y>
+					<X>270</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1860,13 +1905,13 @@ if(!waiting.isEmpty()){
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>140</X><Y>40</Y></Point>
+						<Point><X>80</X><Y>40</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1772321565422</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>80</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1899,7 +1944,7 @@ if(!waiting.isEmpty()){
 				<Connector>
 					<Id>1772321565424</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>500</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1925,14 +1970,14 @@ if(!waiting.isEmpty()){
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>420</X><Y>470</Y></Point>
-						<Point><X>390</X><Y>470</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-110</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1772321578578</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>80</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1965,7 +2010,7 @@ if(!waiting.isEmpty()){
 				<Connector>
 					<Id>1772321578580</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>500</X><Y>530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1991,74 +2036,41 @@ if(!waiting.isEmpty()){
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>420</X><Y>530</Y></Point>
-						<Point><X>390</X><Y>530</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-110</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
-					<Id>1772335315984</Id>
-					<Name><![CDATA[connector2]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedChooseStair]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedWait2]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedWait]]></ClassName>
-						<ItemName><![CDATA[out]]></ItemName>
-					</TargetConnectableItemReference>
-					<Points>
-						<Point><X>190</X><Y>470</Y></Point>
-						<Point><X>140</X><Y>470</Y></Point>
-					</Points>
-				</Connector>
-				<Connector>
-					<Id>1772335315986</Id>
+					<Id>1772380569090</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>50</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<SourceEmbeddedObjectReference>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedWait2]]></ItemName>
-					</SourceEmbeddedObjectReference>
-					<SourceConnectableItemReference>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedWait]]></ClassName>
-						<ItemName><![CDATA[in]]></ItemName>
-					</SourceConnectableItemReference>
-					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
 						<ItemName><![CDATA[pedEnterFromRoom]]></ItemName>
-					</TargetEmbeddedObjectReference>
-					<TargetConnectableItemReference>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
 						<ClassName><![CDATA[PedEnter]]></ClassName>
 						<ItemName><![CDATA[out]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E1]]></ClassName>
+						<ItemName><![CDATA[pedChooseStair]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>100</X><Y>470</Y></Point>
-						<Point><X>80</X><Y>470</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>200</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -2074,16 +2086,17 @@ if(!waiting.isEmpty()){
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Parameter>
-						<Name><![CDATA[ped]]></Name>
-						<Type><![CDATA[Pedestrian]]></Type>
+						<Name><![CDATA[x]]></Name>
+						<Type><![CDATA[double]]></Type>
 					</Parameter>
-					<Body><![CDATA[for(int i = 0; i < pedsX.size(); i++){
-	Pedestrian p = new Pedestrian();
-	p.setXYZ(pedsX.get(i), pedsY.get(i), this.getLevel().getZ());
-	pedEnterFromRoom.take(p);
-	p.set_x_pos(pedsX.get(i));
-	p.set_y_pos(pedsY.get(i));
-}]]></Body>
+					<Parameter>
+						<Name><![CDATA[y]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Body><![CDATA[Pedestrian ped = add_pedestriansInFloor();
+ped.set_x_pos(x);
+ped.set_y_pos(y);
+pedEnterFromRoom.take(ped);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -2224,7 +2237,7 @@ if(!waiting.isEmpty()){
 				<EmbeddedObject>
 					<Id>1772308255713</Id>
 					<Name><![CDATA[pedEnterFromRoom]]></Name>
-					<X>40</X><Y>460</Y>
+					<X>10</X><Y>460</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -2257,14 +2270,20 @@ if(!waiting.isEmpty()){
 						<Parameter>
 							<Name><![CDATA[level]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[level]]></Code>
+								<Code><![CDATA[Mylevel]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationX]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[ped.x_pos]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationY]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[ped.y_pos]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationNode]]></Name>
@@ -2274,6 +2293,10 @@ if(!waiting.isEmpty()){
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[initialSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[0.5]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[diameter]]></Name>
@@ -2308,8 +2331,8 @@ if(!waiting.isEmpty()){
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[ped.setXYZ(ped.x_pos, ped.y_pos, this.getLevel().getZ());
-System.out.println("Position: " + ped.getXYZ());]]></Code>
+								<Code><![CDATA[ped.setLevel(Mylevel);
+ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2369,12 +2392,12 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.LOCATION_NODE]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[StairExitL]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationX]]></Name>
@@ -2402,6 +2425,11 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[System.out.println("");
+String name = "floor["+ped.getOwner().getIndex()+"]:ped["+ped.getIndex()+"]";
+System.out.println("Ped " + name + " has reached the left stair.");]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -2438,7 +2466,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<EmbeddedObject>
 					<Id>1772308627246</Id>
 					<Name><![CDATA[pedSink]]></Name>
-					<X>490</X><Y>470</Y>
+					<X>570</X><Y>470</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2487,7 +2515,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<EmbeddedObject>
 					<Id>1772308822588</Id>
 					<Name><![CDATA[pedChooseStair]]></Name>
-					<X>180</X><Y>470</Y>
+					<X>240</X><Y>470</Y>
 					<Label><X>-35</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2506,12 +2534,21 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[type]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.TYPE_CONDITIONS]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition1]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[getDistance(ped.getX(), ped.getY(), Stair_L.getX(), Stair_L.getY()) <= getDistance(ped.getX(), ped.getY(), Stair_R.getX(), Stair_R.getY())]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition2]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[getDistance(ped.getX(), ped.getY(), Stair_L.getX(), Stair_L.getY()) > getDistance(ped.getX(), ped.getY(), Stair_R.getX(), Stair_R.getY())]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[condition3]]></Name>
@@ -2563,12 +2600,22 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[System.out.println("");
+System.out.println("Position: " + ped.getXYZ());]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[System.out.println("Choosing L based on distance "+getDistance(ped.getX(), ped.getY(), Stair_L.getX(), Stair_L.getY()))]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[System.out.println("Choosing R based on distance "+getDistance(ped.getX(), ped.getY(), Stair_R.getX(), Stair_R.getY()))]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit3]]></Name>
@@ -2630,12 +2677,12 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.LOCATION_NODE]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[StairExitR]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationX]]></Name>
@@ -2663,6 +2710,11 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[System.out.println("");
+String name = "floor["+ped.getOwner().getIndex()+"]:ped["+ped.getIndex()+"]";
+System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -2699,7 +2751,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<EmbeddedObject>
 					<Id>1772308851354</Id>
 					<Name><![CDATA[pedSink1]]></Name>
-					<X>490</X><Y>530</Y>
+					<X>570</X><Y>530</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2748,7 +2800,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<EmbeddedObject>
 					<Id>1772321563040</Id>
 					<Name><![CDATA[pedWait]]></Name>
-					<X>420</X><Y>460</Y>
+					<X>500</X><Y>460</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2767,6 +2819,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[locationType]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.LOCATION_LINE]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationNode]]></Name>
@@ -2779,6 +2834,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[StairExitL]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationX]]></Name>
@@ -2857,7 +2915,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<EmbeddedObject>
 					<Id>1772321578557</Id>
 					<Name><![CDATA[pedWait1]]></Name>
-					<X>420</X><Y>520</Y>
+					<X>500</X><Y>520</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2876,6 +2934,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[locationType]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[self.LOCATION_LINE]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationNode]]></Name>
@@ -2888,6 +2949,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationLine]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[StairExitR]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[locationX]]></Name>
@@ -2964,99 +3028,49 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1772335314445</Id>
-					<Name><![CDATA[pedWait2]]></Name>
-					<X>100</X><Y>460</Y>
-					<Label><X>-10</X><Y>-20</Y></Label>
+					<Id>1772401674060</Id>
+					<Name><![CDATA[pedestriansInFloor]]></Name>
+					<X>200</X><Y>400</Y>
+					<Label><X>10</X><Y>-5</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedWait]]></ClassName>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Pedestrian]]></ClassName>
 					</ActiveObjectClass>
 					<GenericParameterSubstitute>
 						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-							<ClassName><![CDATA[PedWait]]></ClassName>
-							<ItemName><![CDATA[1412464601107]]></ItemName>
+							<PackageName><![CDATA[evakuierung]]></PackageName>
+							<ClassName><![CDATA[Pedestrian]]></ClassName>
+							<ItemName><![CDATA[1772028769382]]></ItemName>
 						</GenericParameterSubstituteReference>
 					</GenericParameterSubstitute>
 					<Parameters>
 						<Parameter>
-							<Name><![CDATA[locationType]]></Name>
+							<Name><![CDATA[x_pos]]></Name>
 						</Parameter>
 						<Parameter>
-							<Name><![CDATA[locationNode]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[node]]></Code>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[attractorChoice]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[attractor]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationLine]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationX]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[locationY]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[delayType]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[delayTimeout]]></Name>
-							<Value Class="CodeUnitValue">
-								<Code><![CDATA[0.01]]></Code>
-								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
-							</Value>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[waitForGroup]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[delayStartsWhen]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[maximumCapacity]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[capacity]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[targetReachTolerance]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onBeginWait]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onAtExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onExit]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onCancel]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[onRemove]]></Name>
+							<Name><![CDATA[y_pos]]></Name>
 						</Parameter>
 					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
+					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>
+					<InitialSpeedCode Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+					</InitialSpeedCode>
 					<InitialLocationType>XYZ</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
 					<ColumnCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</ColumnCode>
@@ -3066,9 +3080,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationType>EMPTY</InitializationType>
 					<InitializationDatabaseTableQuery>
-						<Id>1772335314443</Id>
+						<Id>1772401674058</Id>
 						<TableReference>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
@@ -3081,7 +3095,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 			<Presentation>
 				<Level>
 					<Id>1772036615823</Id>
-					<Name><![CDATA[level]]></Name>
+					<Name><![CDATA[Mylevel]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -3095,11 +3109,10 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<Image>
 					<Id>1772036628991</Id>
 					<Name><![CDATA[image]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
 					<X>0</X><Y>0</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
+					<PresentationFlag>false</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
@@ -3201,14 +3214,11 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Closed>false</Closed>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>42</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>17</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>17</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -3296,9 +3306,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>70</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>70</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>70</X><Y>-20</Y><Z>0</Z></Point>
-						<Point><X>70</X><Y>5</Y><Z>0</Z></Point>
-						<Point><X>70</X><Y>5</Y><Z>0</Z></Point>
+						<Point><X>70</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>70</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>70</X><Y>10</Y><Z>0</Z></Point>
 						<Point><X>70</X><Y>10</Y><Z>0</Z></Point>
 						<Point><X>70</X><Y>-15</Y><Z>0</Z></Point>
 						<Point><X>70</X><Y>10</Y><Z>0</Z></Point>
@@ -3310,7 +3320,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<Wall>
 					<Id>1772037315491</Id>
 					<Name><![CDATA[wall6]]></Name>
-					<X>85</X><Y>135</Y>
+					<X>85.333</X><Y>138.667</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3326,28 +3336,28 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-5</Y><Z>0</Z></Point>
-						<Point><X>-25</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-70</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-25</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>30</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>5</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>30</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>30</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>30</Y><Z>0</Z></Point>
+						<Point><X>-0.51</X><Y>24.994</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>0.177</X><Y>-8.661999999999999</Y><Z>0</Z></Point>
+						<Point><X>-25.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>-70.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>-45.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>-45.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>-25.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>41.333</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>26.333</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>1.333</Y><Z>0</Z></Point>
+						<Point><X>-20.333</X><Y>16.333</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>26.333</Y><Z>0</Z></Point>
+						<Point><X>19.667</X><Y>26.333</Y><Z>0</Z></Point>
+						<Point><X>-20.333</X><Y>26.333</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037336910</Id>
 					<Name><![CDATA[wall7]]></Name>
-					<X>85</X><Y>175</Y>
+					<X>85</X><Y>179</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3364,24 +3374,24 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-5</Y><Z>0</Z></Point>
-						<Point><X>-25</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-70</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-15</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>-15</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>30</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>5</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>30</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>30</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>30</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-9</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>-70</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>-45</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>-45</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>41</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>26</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>1</Y><Z>0</Z></Point>
+						<Point><X>-20</X><Y>16</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>26</Y><Z>0</Z></Point>
+						<Point><X>20</X><Y>26</Y><Z>0</Z></Point>
+						<Point><X>-20</X><Y>26</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -3403,19 +3413,16 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-20</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-45</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>-45</Y><Z>0</Z></Point>
+						<Point><X>-0.198</X><Y>-24.999</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>-42</Y><Z>0</Z></Point>
+						<Point><X>-0.135</X><Y>-17.001</Y><Z>0</Z></Point>
+						<Point><X>-0.333</X><Y>-17</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037400024</Id>
 					<Name><![CDATA[wall9]]></Name>
-					<X>105</X><Y>195</Y>
+					<X>107</X><Y>195</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3432,21 +3439,21 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>10</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-15</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-15</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>50</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>18</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-7</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>18</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>18</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>18</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>18</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>18</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>18</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>43</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>28</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>3</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-2</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>28</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>48</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>8</X><Y>0</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -3468,19 +3475,16 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-45</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-20</Y><Z>0</Z></Point>
-						<Point><X>70</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-45</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-45</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>-45</Y><Z>0</Z></Point>
+						<Point><X>0.198</X><Y>-24.999</Y><Z>0</Z></Point>
+						<Point><X>0.333</X><Y>-42</Y><Z>0</Z></Point>
+						<Point><X>0.135</X><Y>-17.001</Y><Z>0</Z></Point>
+						<Point><X>3.869</X><Y>-17.251</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037450768</Id>
 					<Name><![CDATA[wall11]]></Name>
-					<X>145</X><Y>195</Y>
+					<X>150</X><Y>195</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3496,25 +3500,25 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>24.997</X><Y>-0.373</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>-2.664</X><Y>0.04</Y><Z>0</Z></Point>
+						<Point><X>-2.641</X><Y>0.801</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>39.974</X><Y>-1.134</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>40</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>-5</X><Y>65</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037472198</Id>
 					<Name><![CDATA[wall12]]></Name>
-					<X>185</X><Y>195</Y>
+					<X>186.667</X><Y>195.333</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3530,28 +3534,28 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>50</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>35</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>35</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>55</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>24.997</X><Y>-0.35700000000000004</Y><Z>0</Z></Point>
+						<Point><X>23.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>-1.6639999999999997</X><Y>0.023999999999999966</Y><Z>0</Z></Point>
+						<Point><X>23.333</X><Y>24.667</Y><Z>0</Z></Point>
+						<Point><X>23.333</X><Y>64.667</Y><Z>0</Z></Point>
+						<Point><X>23.333</X><Y>39.667</Y><Z>0</Z></Point>
+						<Point><X>23.333</X><Y>39.667</Y><Z>0</Z></Point>
+						<Point><X>23.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>23.333</X><Y>24.667</Y><Z>0</Z></Point>
+						<Point><X>48.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>33.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>8.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>3.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>33.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>53.333</X><Y>-0.333</Y><Z>0</Z></Point>
+						<Point><X>13.333</X><Y>-0.333</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037487400</Id>
 					<Name><![CDATA[wall13]]></Name>
-					<X>230</X><Y>195</Y>
+					<X>232.333</X><Y>195</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3568,18 +3572,18 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>27.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>2.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>2.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>17.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>42.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>17.667</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>17.667</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.667</X><Y>40</Y><Z>0</Z></Point>
+						<Point><X>17.667</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.667</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.667</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>-2.333</X><Y>65</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -3687,7 +3691,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<Wall>
 					<Id>1772037599702</Id>
 					<Name><![CDATA[wall17]]></Name>
-					<X>420</X><Y>195</Y>
+					<X>422.667</X><Y>195</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3704,24 +3708,24 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>60</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>85</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>27.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>2.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>2.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>42.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>40</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>40</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>60</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>85</Y><Z>0</Z></Point>
+						<Point><X>-2.667</X><Y>65</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037645054</Id>
 					<Name><![CDATA[wall18]]></Name>
-					<X>460</X><Y>195</Y>
+					<X>462.667</X><Y>195</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3735,27 +3739,27 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<ZHeight>3</ZHeight>
 					<Closed>false</Closed>
 					<Points>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>35</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>50</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>0.666</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-24.334</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>25.666</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>32.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>7.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>7.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>47.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>40</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>22.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>2.333</X><Y>65</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037666633</Id>
 					<Name><![CDATA[wall19]]></Name>
-					<X>505</X><Y>195</Y>
+					<X>508.667</X><Y>194.667</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3771,25 +3775,25 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>24.998</X><Y>0.324</Y><Z>0</Z></Point>
+						<Point><X>25.666</X><Y>0.333</Y><Z>0</Z></Point>
+						<Point><X>0.668</X><Y>0.009</Y><Z>0</Z></Point>
+						<Point><X>0.666</X><Y>0.333</Y><Z>0</Z></Point>
+						<Point><X>16.333</X><Y>0.333</Y><Z>0</Z></Point>
+						<Point><X>41.333</X><Y>0.333</Y><Z>0</Z></Point>
+						<Point><X>16.333</X><Y>25.333</Y><Z>0</Z></Point>
+						<Point><X>16.333</X><Y>65.333</Y><Z>0</Z></Point>
+						<Point><X>16.333</X><Y>40.333</Y><Z>0</Z></Point>
+						<Point><X>16.333</X><Y>65.333</Y><Z>0</Z></Point>
+						<Point><X>16.333</X><Y>65.333</Y><Z>0</Z></Point>
+						<Point><X>16.333</X><Y>65.333</Y><Z>0</Z></Point>
+						<Point><X>-3.667</X><Y>65.333</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772037713135</Id>
 					<Name><![CDATA[wall20]]></Name>
-					<X>545</X><Y>195</Y>
+					<X>549</X><Y>195</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3806,18 +3810,18 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>35</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>28.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>3.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>3.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>16</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>41</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>16</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>16</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>16</X><Y>40</Y><Z>0</Z></Point>
+						<Point><X>16</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>16</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>16</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>-4</X><Y>65</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -3857,7 +3861,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<Wall>
 					<Id>1772037761556</Id>
 					<Name><![CDATA[wall22]]></Name>
-					<X>630</X><Y>195</Y>
+					<X>632.667</X><Y>195</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3874,15 +3878,15 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>40</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>65</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-7.667</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>40</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>17.333</X><Y>65</Y><Z>0</Z></Point>
+						<Point><X>-2.667</X><Y>65</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -5270,9 +5274,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-20</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-40</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-20</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-45</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-20</X><Y>-25</Y><Z>0</Z></Point>
@@ -5304,9 +5308,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-35</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-10</X><Y>-25</Y><Z>0</Z></Point>
@@ -5338,9 +5342,9 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-40</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-15</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-35</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-35</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-10</X><Y>-25</Y><Z>0</Z></Point>
@@ -5355,7 +5359,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<Wall>
 					<Id>1772038583969</Id>
 					<Name><![CDATA[wall68]]></Name>
-					<X>145</X><Y>75</Y>
+					<X>150</X><Y>75</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5372,24 +5376,24 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-65</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-40</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-65</Y><Z>0</Z></Point>
-						<Point><X>40</X><Y>-65</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-65</Y><Z>0</Z></Point>
+						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-65</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-40</Y><Z>0</Z></Point>
+						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-65</Y><Z>0</Z></Point>
+						<Point><X>35</X><Y>-65</Y><Z>0</Z></Point>
+						<Point><X>-5</X><Y>-65</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1772038595304</Id>
 					<Name><![CDATA[wall69]]></Name>
-					<X>105</X><Y>75</Y>
+					<X>110</X><Y>75</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5406,18 +5410,18 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>45</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-10</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>15</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>20</X><Y>-10</Y><Z>0</Z></Point>
-						<Point><X>40</X><Y>-10</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-10</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-10</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>15</Y><Z>0</Z></Point>
+						<Point><X>-5</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-10</Y><Z>0</Z></Point>
+						<Point><X>35</X><Y>-10</Y><Z>0</Z></Point>
+						<Point><X>-5</X><Y>-10</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -6897,7 +6901,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<TargetLine>
 					<Id>1772307409643</Id>
 					<Name><![CDATA[StairExitR]]></Name>
-					<X>1030</X><Y>155</Y>
+					<X>1033</X><Y>155</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6907,7 +6911,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>15</X><Y>0</Y></Point>
+						<Point><X>9</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<Wall>
@@ -7115,7 +7119,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 				<TargetLine>
 					<Id>1772307569661</Id>
 					<Name><![CDATA[StairExitL]]></Name>
-					<X>275</X><Y>115</Y>
+					<X>270</X><Y>115</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7125,7 +7129,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-20</X><Y>0</Y></Point>
+						<Point><X>-10</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<Wall>
@@ -7743,91 +7747,30 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						<Point><X>-17</X><Y>18</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1772368796493</Id>
+					<Name><![CDATA[button]]></Name>
+					<X>460</X><Y>-100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor>-16777216</TextColor>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[for (Room r: rooms){
+	r.releaseAll();
+}]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[button]]></LabelText>
+					</ExtendedProperties>
+				</Control>
 			</Presentation>
-
-				</Level>
-				<Level>
-					<Id>1772334233461</Id>
-					<Name><![CDATA[level1]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>13.63</Z>
-					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
-
-
-				</Level>
-				<Level>
-					<Id>1772334233463</Id>
-					<Name><![CDATA[level2]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>17.47</Z>
-					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
-
-
-				</Level>
-				<Level>
-					<Id>1772334233465</Id>
-					<Name><![CDATA[level3]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>21.27</Z>
-					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
-
-
-				</Level>
-				<Level>
-					<Id>1772334233467</Id>
-					<Name><![CDATA[level4]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>25.09</Z>
-					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
-
-
-				</Level>
-				<Level>
-					<Id>1772334233469</Id>
-					<Name><![CDATA[level5]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>28.91</Z>
-					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
-
-
-				</Level>
-				<Level>
-					<Id>1772334233471</Id>
-					<Name><![CDATA[level6]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>32.73</Z>
-					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
-
 
 				</Level>
 			</Presentation>
@@ -11602,38 +11545,6 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 			</ScaleRuler>
 			<CurrentLevel>1772312528452</CurrentLevel>
 			<ConnectionsId>1772312528447</ConnectionsId>
-			<Variables>
-				<Variable Class="CollectionVariable">
-					<Id>1772317622095</Id>
-					<Name><![CDATA[pedsX]]></Name>
-					<X>518</X><Y>347</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[Double]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-					</Properties>
-
-				</Variable>
-				<Variable Class="CollectionVariable">
-					<Id>1772320789757</Id>
-					<Name><![CDATA[pedsY]]></Name>
-					<X>590</X><Y>347</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[Double]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-					</Properties>
-
-				</Variable>
-			</Variables>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
@@ -11646,8 +11557,12 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Parameter>
-						<Name><![CDATA[ped]]></Name>
-						<Type><![CDATA[Pedestrian]]></Type>
+						<Name><![CDATA[x]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[y]]></Name>
+						<Type><![CDATA[double]]></Type>
 					</Parameter>
 				</Function>
 			</Functions>
