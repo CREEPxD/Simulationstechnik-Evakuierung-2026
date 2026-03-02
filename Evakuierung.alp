@@ -101,7 +101,7 @@
 				<Length>1300</Length>
 				<Rotation>0</Rotation>
 				<ScaleType>BASED_ON_LENGTH</ScaleType>
-				<ModelLength>135</ModelLength>
+				<ModelLength>114</ModelLength>
 				<LengthUnits>METER</LengthUnits>
 				<Scale>10</Scale>
 				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
@@ -940,9 +940,6 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[ped.set_originRoom(this);]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onBeginGrouping]]></Name>
