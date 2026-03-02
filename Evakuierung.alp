@@ -106,7 +106,7 @@
 				<Scale>10</Scale>
 				<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
 			</ScaleRuler>
-			<CurrentLevel>1772333965796</CurrentLevel>
+			<CurrentLevel>1771946744582</CurrentLevel>
 			<ConnectionsId>1771946744577</ConnectionsId>
 			<Variables>
 				<Variable Class="Parameter">
@@ -867,6 +867,12 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 										</GenericParameterSubstituteReference>
 									</GenericParameterSubstitute>
 									<Parameters>
+										<Parameter>
+											<Name><![CDATA[x_pos]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[y_pos]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -1116,7 +1122,7 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 							<Value Class="CodeValue">
 								<Code><![CDATA[Double x_pos = this.getX()+ped.getX();
 Double y_pos = this.getY()+ped.getY();
-((Floor)getOwner()).acceptPedsFromRooms(x_pos, y_pos, ped.originRoom);]]></Code>
+((Floor)getOwner()).acceptPedsFromRooms(x_pos, y_pos);]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -1261,6 +1267,12 @@ Double y_pos = this.getY()+ped.getY();
 											</GenericParameterSubstituteReference>
 										</GenericParameterSubstitute>
 										<Parameters>
+											<Parameter>
+												<Name><![CDATA[x_pos]]></Name>
+											</Parameter>
+											<Parameter>
+												<Name><![CDATA[y_pos]]></Name>
+											</Parameter>
 										</Parameters>
 										<ReplicationFlag>true</ReplicationFlag>
 										<Replication Class="CodeValue">
@@ -1706,28 +1718,6 @@ Double y_pos = this.getY()+ped.getY();
 				<PackageName><![CDATA[evakuierung]]></PackageName>
 				<ClassName><![CDATA[Floor]]></ClassName>
 			</ExtendsReference>
-			<StartupCode><![CDATA[int i = this.getIndex();
-switch (i){
-	case 0:
-		this.setLevel(main.level1);
-		break;
-	case 1:
-		this.setLevel(main.level2);
-		break;
-	case 2:
-		this.setLevel(main.level3);
-		break;
-	case 3:
-		this.setLevel(main.level4);
-		break;
-	case 4:
-		this.setLevel(main.level5);
-		break;
-	case 5:
-		this.setLevel(main.level6);
-		break;
-}
-System.out.println("Level: "+this.getLevel());]]></StartupCode>
 			<Generic>false</Generic>
 			<GenericParameter>
 				<Id>1772036615822</Id>
@@ -1818,26 +1808,6 @@ System.out.println("Level: "+this.getLevel());]]></StartupCode>
 			</ScaleRuler>
 			<CurrentLevel>1772036615823</CurrentLevel>
 			<ConnectionsId>1772036615818</ConnectionsId>
-			<Variables>
-				<Variable Class="CollectionVariable">
-					<Id>1772397633313</Id>
-					<Name><![CDATA[Stairs]]></Name>
-					<X>360</X><Y>-60</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
-						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
-						<ElementClass><![CDATA[Object]]></ElementClass>
-						<ValueElementClass><![CDATA[String]]></ValueElementClass>
-						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ StairExitL, Stair_L, StairExitR, Stair_R }]]></Code>
-						</CollectionInitializer>
-					</Properties>
-
-				</Variable>
-			</Variables>
 			<Connectors>
 				<Connector>
 					<Id>1772308824434</Id>
@@ -2040,7 +2010,7 @@ System.out.println("Level: "+this.getLevel());]]></StartupCode>
 				<Connector>
 					<Id>1772380569090</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>50</X><Y>470</Y>
+					<X>40</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2067,7 +2037,7 @@ System.out.println("Level: "+this.getLevel());]]></StartupCode>
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>200</X><Y>0</Y></Point>
+						<Point><X>210</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 			</Connectors>
@@ -2234,7 +2204,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1772308255713</Id>
 					<Name><![CDATA[pedEnterFromRoom]]></Name>
-					<X>10</X><Y>460</Y>
+					<X>0</X><Y>460</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -2329,7 +2299,8 @@ pedEnterFromRoom.take(ped);]]></Body>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.setLevel(Mylevel);
-ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
+ped.setXY(ped.x_pos, ped.y_pos);
+System.out.println("Test: "+ped.person.isVisible());]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2843,12 +2814,13 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[delayType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.DELAY_MANUAL]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[1]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[waitForGroup]]></Name>
@@ -2958,12 +2930,13 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[delayType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.DELAY_MANUAL]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[1]]></Code>
+								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[waitForGroup]]></Name>
@@ -6978,6 +6951,12 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 											</GenericParameterSubstituteReference>
 										</GenericParameterSubstitute>
 										<Parameters>
+											<Parameter>
+												<Name><![CDATA[x_pos]]></Name>
+											</Parameter>
+											<Parameter>
+												<Name><![CDATA[y_pos]]></Name>
+											</Parameter>
 										</Parameters>
 										<ReplicationFlag>true</ReplicationFlag>
 										<Replication Class="CodeValue">
@@ -7196,6 +7175,12 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 											</GenericParameterSubstituteReference>
 										</GenericParameterSubstitute>
 										<Parameters>
+											<Parameter>
+												<Name><![CDATA[x_pos]]></Name>
+											</Parameter>
+											<Parameter>
+												<Name><![CDATA[y_pos]]></Name>
+											</Parameter>
 										</Parameters>
 										<ReplicationFlag>true</ReplicationFlag>
 										<Replication Class="CodeValue">
@@ -7744,29 +7729,30 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 						<Point><X>-17</X><Y>18</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
-				<Control Type="Button">
-				 	<EmbeddedIcon>false</EmbeddedIcon>				
-					<Id>1772368796493</Id>
-					<Name><![CDATA[button]]></Name>
-					<X>460</X><Y>-100</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+				<DensityMap>
+					<Id>1772453013077</Id>
+					<Name><![CDATA[densityMap]]></Name>
+					<X>1330</X><Y>30</Y>
+					<Label><X>-15</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="100" Height="30">
-                        <EmbeddedIcon>false</EmbeddedIcon>	
-						<TextColor>-16777216</TextColor>
-						<Enabled>true</Enabled>
-						<ActionCode><![CDATA[for (Room r: rooms){
-	r.releaseAll();
-}]]></ActionCode>
-					</BasicProperties>
-					<ExtendedProperties>
-						<Font Name="Dialog" Size="11" Style="0"/>
-						<LabelText><![CDATA[button]]></LabelText>
-					</ExtendedProperties>
-				</Control>
+					<Z>0</Z>
+					<Width>10</Width>
+					<Height>200</Height>
+					<Transparency>0.25</Transparency>
+					<CriticalDensity>1.5</CriticalDensity>
+					<Type>PEDESTRIAN</Type>
+					<TimePeriod>COMPLETE</TimePeriod>
+					<WindowTime Class="UnitValue">
+						<Value Class="Double">5</Value>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</WindowTime>
+					<DisplayedValue>MEAN</DisplayedValue>
+					<EnableAttenuation>true</EnableAttenuation>
+					<ColorScheme>LINEAR</ColorScheme>
+				</DensityMap>
 			</Presentation>
 
 				</Level>
@@ -11615,8 +11601,8 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 	<InspectionWindowColorTheme>DEFAULT</InspectionWindowColorTheme>
 	<Frame>
 		<Id>1771946744574</Id>
-		<Width>1420</Width>
-		<Height>380</Height>
+		<Width>1600</Width>
+		<Height>420</Height>
 	</Frame>
 	<Database>
 		<Id>1771946744573</Id>
@@ -11659,7 +11645,7 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 			<Id>1771946744584</Id>
 			<Name><![CDATA[Simulation]]></Name>
 			<CommandLineArguments><![CDATA[]]></CommandLineArguments>
-			<MaximumMemory>512</MaximumMemory>
+			<MaximumMemory>1024</MaximumMemory>
 			<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
 			<CustomGeneratorCode>new Random()</CustomGeneratorCode>
 			<SeedValue>1</SeedValue>
