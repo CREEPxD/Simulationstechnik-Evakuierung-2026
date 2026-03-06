@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.7.202512121159" AlpVersion="8.9.7">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.8.202602251703" AlpVersion="8.9.7">
 <Model>
 	<Id>1771946744572</Id>
 	<Name><![CDATA[Evakuierung]]></Name>
@@ -27,7 +27,7 @@
 				</GenericParameterValue>
 				<GenericParameterLabel><![CDATA[Generic parameter:]]></GenericParameterLabel>
 			</GenericParameter>
-			<FlowChartsUsage>ENTITY</FlowChartsUsage>
+			<FlowChartsUsage>PED</FlowChartsUsage>
 			<SamplesToKeep>100</SamplesToKeep>
 			<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>
 			<ElementsLimitValue>100</ElementsLimitValue>
@@ -295,7 +295,8 @@
 	for(Room r:f.rooms){
 		r.releaseAll();
 	}
-}]]></ActionCode>
+}
+traceln("[Start] Starting evacuation");]]></ActionCode>
 					</BasicProperties>
 					<ExtendedProperties>
 						<Font Name="Dialog" Size="11" Style="0"/>
@@ -960,9 +961,6 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[addToCustomPopulation]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[true]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[population]]></Name>
@@ -1148,7 +1146,7 @@ if (!isActive)roomWaitingArea.setFillColor(new Color(193, 193, 193, 60));]]></Bo
 							<Value Class="CodeValue">
 								<Code><![CDATA[Double x_pos = this.getX()+ped.getX();
 Double y_pos = this.getY()+ped.getY();
-((Floor)getOwner()).acceptPedsFromRooms(x_pos, y_pos);]]></Code>
+((Floor)getOwner()).acceptPedsFromRooms(x_pos, y_pos, time());]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -1170,64 +1168,6 @@ Double y_pos = this.getY()+ped.getY();
 					<InitializationType>SPECIFIED_NUMBER</InitializationType>
 					<InitializationDatabaseTableQuery>
 						<Id>1772310843807</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
-					<Id>1772380752551</Id>
-					<Name><![CDATA[pedestriansInRoom]]></Name>
-					<X>250</X><Y>-30</Y>
-					<Label><X>20</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<PresentationId>1772380757046</PresentationId>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Pedestrian]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Pedestrian]]></ClassName>
-							<ItemName><![CDATA[1772028769382]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[x_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[y_pos]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-					</InitialSpeedCode>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>EMPTY</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1772380752549</Id>
 						<TableReference>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
@@ -1422,24 +1362,6 @@ Double y_pos = this.getY()+ped.getY();
 					<Height>35</Height>
 					<Rotation>0.0</Rotation>
 				</RectangleNode>
-				<EmbeddedObjectPresentation>
-					<Id>1772380757046</Id>
-					<Name><![CDATA[pedestriansInRoom_presentation]]></Name>
-					<X>0</X><Y>0</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
-					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
-					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
-					<Latitude>0.0</Latitude>
-					<Longitude>0.0</Longitude>
-				</EmbeddedObjectPresentation>
 			</Presentation>
 
 				</Level>
@@ -1589,6 +1511,27 @@ Double y_pos = this.getY()+ped.getY();
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1772772347449</Id>
+					<Name><![CDATA[startTime]]></Name>
+					<X>330</X><Y>-60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<ParameterEditor>
+							<Id>1772772347447</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<AgentLinks>
 				<AgentLink>
@@ -1614,19 +1557,6 @@ Double y_pos = this.getY()+ped.getY();
 
 			<ContainerLinks>
 				<ContainerLink>
-					<Id>1772380757051</Id>
-					<Name><![CDATA[floor_E02]]></Name>
-					<X>50</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E02]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
 					<Id>1772380757053</Id>
 					<Name><![CDATA[floor_E1]]></Name>
 					<X>150</X><Y>-100</Y>
@@ -1650,45 +1580,6 @@ Double y_pos = this.getY()+ped.getY();
 					<ActiveObjectClass>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Main]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1772380757057</Id>
-					<Name><![CDATA[room]]></Name>
-					<X>350</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Room]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1772511054721</Id>
-					<Name><![CDATA[floor_E03]]></Name>
-					<X>450</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E03]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1772555394483</Id>
-					<Name><![CDATA[floor_E04]]></Name>
-					<X>550</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E04]]></ClassName>
 					</ActiveObjectClass>
 				</ContainerLink>
 			</ContainerLinks>
@@ -1930,7 +1821,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772321565422</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>80</X><Y>0</Y>
+					<X>650</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1938,7 +1829,7 @@ Double y_pos = this.getY()+ped.getY();
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedSink]]></ItemName>
+						<ItemName><![CDATA[changeFloorL]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -1948,7 +1839,7 @@ Double y_pos = this.getY()+ped.getY();
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedWait]]></ItemName>
+						<ItemName><![CDATA[teleportCompensationLStair]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -1956,8 +1847,8 @@ Double y_pos = this.getY()+ped.getY();
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>490</X><Y>470</Y></Point>
-						<Point><X>460</X><Y>470</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-110</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -1971,7 +1862,7 @@ Double y_pos = this.getY()+ped.getY();
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedWait]]></ItemName>
+						<ItemName><![CDATA[teleportCompensationLStair]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -1996,7 +1887,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772321578578</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>80</X><Y>0</Y>
+					<X>650</X><Y>530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2004,7 +1895,7 @@ Double y_pos = this.getY()+ped.getY();
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedSink1]]></ItemName>
+						<ItemName><![CDATA[changeFloorR]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -2014,7 +1905,7 @@ Double y_pos = this.getY()+ped.getY();
 					<TargetEmbeddedObjectReference>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedWait1]]></ItemName>
+						<ItemName><![CDATA[teleportCompensationRStair]]></ItemName>
 					</TargetEmbeddedObjectReference>
 					<TargetConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -2022,8 +1913,8 @@ Double y_pos = this.getY()+ped.getY();
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>490</X><Y>530</Y></Point>
-						<Point><X>460</X><Y>530</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-110</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -2037,7 +1928,7 @@ Double y_pos = this.getY()+ped.getY();
 					<SourceEmbeddedObjectReference>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
 						<ClassName><![CDATA[Floor_E1]]></ClassName>
-						<ItemName><![CDATA[pedWait1]]></ItemName>
+						<ItemName><![CDATA[teleportCompensationRStair]]></ItemName>
 					</SourceEmbeddedObjectReference>
 					<SourceConnectableItemReference>
 						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
@@ -2112,9 +2003,14 @@ Double y_pos = this.getY()+ped.getY();
 						<Name><![CDATA[y]]></Name>
 						<Type><![CDATA[double]]></Type>
 					</Parameter>
+					<Parameter>
+						<Name><![CDATA[pedStartTime]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
 					<Body><![CDATA[Pedestrian ped = add_pedestriansInFloor();
 ped.set_x_pos(x);
 ped.set_y_pos(y);
+ped.set_startTime(pedStartTime);
 pedEnterFromRoom.take(ped);]]></Body>
 				</Function>
 			</Functions>
@@ -2351,8 +2247,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.setLevel(Mylevel);
-ped.setXY(ped.x_pos, ped.y_pos);
-System.out.println("Test: "+ped.person.isVisible());]]></Code>
+ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2391,7 +2286,7 @@ System.out.println("Test: "+ped.person.isVisible());]]></Code>
 					<Id>1772308603634</Id>
 					<Name><![CDATA[pedGoToLeftStair]]></Name>
 					<X>350</X><Y>460</Y>
-					<Label><X>-10</X><Y>-20</Y></Label>
+					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -2445,11 +2340,6 @@ System.out.println("Test: "+ped.person.isVisible());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[System.out.println("");
-String name = "floor["+ped.getOwner().getIndex()+"]:ped["+ped.getIndex()+"]";
-System.out.println("Ped " + name + " has reached the left stair.");]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -2485,8 +2375,8 @@ System.out.println("Ped " + name + " has reached the left stair.");]]></Code>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1772308627246</Id>
-					<Name><![CDATA[pedSink]]></Name>
-					<X>570</X><Y>470</Y>
+					<Name><![CDATA[changeFloorL]]></Name>
+					<X>650</X><Y>470</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2505,6 +2395,15 @@ System.out.println("Ped " + name + " has reached the left stair.");]]></Code>
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[Double x_pos = ped.getX();
+Double y_pos = ped.getY()-11.4;
+if (this.getIndex()!=0){
+	traceln("Moving ped ["+this.getIndex()+"]:["+ped.getIndex()+"] to floor ["+(this.getIndex()-1)+"](L)");
+	main.floor_E1_6.get(this.getIndex()-1).acceptPedsFromRooms(x_pos, y_pos, ped.startTime);
+}
+else traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds");]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -2620,22 +2519,12 @@ System.out.println("Ped " + name + " has reached the left stair.");]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[System.out.println("");
-System.out.println("Position: " + ped.getXYZ());]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[System.out.println("Choosing L based on distance "+getDistance(ped.getX(), ped.getY(), Stair_L.getX(), Stair_L.getY()))]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit2]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[System.out.println("Choosing R based on distance "+getDistance(ped.getX(), ped.getY(), Stair_R.getX(), Stair_R.getY()))]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit3]]></Name>
@@ -2676,7 +2565,7 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 					<Id>1772308851335</Id>
 					<Name><![CDATA[pedGoToRightStair]]></Name>
 					<X>350</X><Y>520</Y>
-					<Label><X>-10</X><Y>-20</Y></Label>
+					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -2730,11 +2619,6 @@ System.out.println("Position: " + ped.getXYZ());]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[System.out.println("");
-String name = "floor["+ped.getOwner().getIndex()+"]:ped["+ped.getIndex()+"]";
-System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onCancel]]></Name>
@@ -2769,59 +2653,10 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1772308851354</Id>
-					<Name><![CDATA[pedSink1]]></Name>
-					<X>570</X><Y>530</Y>
-					<Label><X>-20</X><Y>-30</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-						<ClassName><![CDATA[PedSink]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
-							<ClassName><![CDATA[PedSink]]></ClassName>
-							<ItemName><![CDATA[1412464601104]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[onEnter]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>false</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>SPECIFIED_NUMBER</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1772308851352</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1772321563040</Id>
-					<Name><![CDATA[pedWait]]></Name>
+					<Name><![CDATA[teleportCompensationLStair]]></Name>
 					<X>500</X><Y>460</Y>
-					<Label><X>-10</X><Y>-20</Y></Label>
+					<Label><X>-55</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -2870,7 +2705,7 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[1]]></Code>
+								<Code><![CDATA[1/ped.getSpeed()]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -2935,9 +2770,9 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 				</EmbeddedObject>
 				<EmbeddedObject>
 					<Id>1772321578557</Id>
-					<Name><![CDATA[pedWait1]]></Name>
+					<Name><![CDATA[teleportCompensationRStair]]></Name>
 					<X>500</X><Y>520</Y>
-					<Label><X>-10</X><Y>-20</Y></Label>
+					<Label><X>-50</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -2986,7 +2821,7 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTimeout]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[1]]></Code>
+								<Code><![CDATA[1/ped.getSpeed()]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -3075,6 +2910,9 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 						<Parameter>
 							<Name><![CDATA[y_pos]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[startTime]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>true</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -3105,6 +2943,64 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 					<InitializationType>EMPTY</InitializationType>
 					<InitializationDatabaseTableQuery>
 						<Id>1772401674058</Id>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1772773103710</Id>
+					<Name><![CDATA[changeFloorR]]></Name>
+					<X>650</X><Y>530</Y>
+					<Label><X>-20</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedSink]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+							<ClassName><![CDATA[PedSink]]></ClassName>
+							<ItemName><![CDATA[1412464601104]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[Double x_pos = ped.getX();
+Double y_pos = ped.getY()+11.4;
+if (this.getIndex()!=0){
+	traceln("Moving ped ["+this.getIndex()+"]:["+ped.getIndex()+"] to floor ["+(this.getIndex()-1)+"](R)");
+	main.floor_E1_6.get(this.getIndex()-1).acceptPedsFromRooms(x_pos, y_pos, ped.startTime);
+}
+else traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds");]]></Code>
+							</Value>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1772773103708</Id>
 						<TableReference>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
@@ -6921,230 +6817,6 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 					</Points>
 				</PolygonNode>
 				<TargetLine>
-					<Id>1772307409643</Id>
-					<Name><![CDATA[StairExitR]]></Name>
-					<X>1033</X><Y>155</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-16744448</LineColor>
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>9</X><Y>0</Y></Point>
-					</Points>
-				</TargetLine>
-				<Wall>
-					<Id>1772307429219</Id>
-					<Name><![CDATA[wall99]]></Name>
-					<X>1030</X><Y>115</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<LineColor>-3308225</LineColor>
-					<LineWidth>2</LineWidth>
-					<LineMaterial>null</LineMaterial>
-					<FillingType>HATCHED_AREA</FillingType>
-					<ZHeight>3</ZHeight>
-					<Closed>false</Closed>
-					<Points>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>60</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>35</Y><Z>0</Z></Point>
-						<Point><X>70</X><Y>20</Y><Z>0</Z></Point>
-					</Points>
-				</Wall>
-				<PolygonNode>
-					<Id>1772307461426</Id>
-					<Name><![CDATA[Stair_R]]></Name>
-					<X>1010</X><Y>125</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<EmbeddedObject>
-						<Id>1772307461425</Id>
-						<ActiveObjectClass>
-							<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
-							<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
-						</ActiveObjectClass>
-						<GenericParameterSubstitute>
-							<GenericParameterSubstituteReference>
-								<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
-								<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
-								<ItemName><![CDATA[1574694148121]]></ItemName>
-							</GenericParameterSubstituteReference>
-						</GenericParameterSubstitute>
-						<Parameters>
-							<Parameter>
-								<Name><![CDATA[appliedClass]]></Name>
-								<Value Class="EntityCodeValue">
-									<IsAgentEntity>false</IsAgentEntity>
-									<EntityEmbeddedObject>
-										<Id>1772307471550</Id>
-										<ActiveObjectClass>
-											<PackageName><![CDATA[evakuierung]]></PackageName>
-											<ClassName><![CDATA[Pedestrian]]></ClassName>
-										</ActiveObjectClass>
-										<GenericParameterSubstitute>
-											<GenericParameterSubstituteReference>
-												<PackageName><![CDATA[evakuierung]]></PackageName>
-												<ClassName><![CDATA[Pedestrian]]></ClassName>
-												<ItemName><![CDATA[1772028769382]]></ItemName>
-											</GenericParameterSubstituteReference>
-										</GenericParameterSubstitute>
-										<Parameters>
-											<Parameter>
-												<Name><![CDATA[x_pos]]></Name>
-											</Parameter>
-											<Parameter>
-												<Name><![CDATA[y_pos]]></Name>
-											</Parameter>
-										</Parameters>
-										<ReplicationFlag>true</ReplicationFlag>
-										<Replication Class="CodeValue">
-											<Code><![CDATA[100]]></Code>
-										</Replication>
-										<CollectionType>ARRAY_LIST_BASED</CollectionType>
-										<InitialLocationType>XYZ</InitialLocationType>
-										<ColumnCode Class="CodeValue">
-											<Code><![CDATA[0]]></Code>
-										</ColumnCode>
-										<RowCode Class="CodeValue">
-											<Code><![CDATA[0]]></Code>
-										</RowCode>
-										<LocationNameCode Class="CodeValue">
-											<Code><![CDATA[""]]></Code>
-										</LocationNameCode>
-										<InitializationType>LOAD_FROM_DATABASE</InitializationType>
-										<InitializationDatabaseTableQuery>
-											<Id>1772307471551</Id>
-											<TableReference>
-											</TableReference>
-										</InitializationDatabaseTableQuery>
-										<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-										<QuantityColumn>
-										</QuantityColumn>
-									</EntityEmbeddedObject>
-								</Value>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[speedRestricted]]></Name>
-								<Value Class="CodeValue">
-									<Code><![CDATA[true]]></Code>
-								</Value>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[maxSpeed]]></Name>
-								<Value Class="CodeUnitValue">
-									<Code><![CDATA[0.5]]></Code>
-									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-								</Value>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[accessRestricted]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[accessRestrictionType]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[accessRestrictionCondition]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[capacity]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[throughput]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[schedule]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[avoidedIfClosed]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onEnter]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onEnterDenied]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onExit]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onOpen]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onClose]]></Name>
-							</Parameter>
-						</Parameters>
-						<ReplicationFlag>false</ReplicationFlag>
-						<Replication Class="CodeValue">
-							<Code><![CDATA[100]]></Code>
-						</Replication>
-						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>XYZ</InitialLocationType>
-						<ColumnCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</ColumnCode>
-						<RowCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</RowCode>
-						<LocationNameCode Class="CodeValue">
-							<Code><![CDATA[""]]></Code>
-						</LocationNameCode>
-						<InitializationType>SPECIFIED_NUMBER</InitializationType>
-						<InitializationDatabaseTableQuery>
-							<Id>1772307461424</Id>
-							<TableReference>
-							</TableReference>
-						</InitializationDatabaseTableQuery>
-						<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-						<QuantityColumn>
-						</QuantityColumn>
-					</EmbeddedObject>
-					<LineColor>-4144960</LineColor>
-					<FillColor>1019265216</FillColor>
-					<LineWidth>1</LineWidth>
-					<LineMaterial>null</LineMaterial>
-					<FillMaterial>null</FillMaterial>
-					<LineStyle>DASHED</LineStyle>
-					<AttractorsLayout>random</AttractorsLayout>
-					<Sloped>false</Sloped>
-					<Slope>
-						<Id>1772307461428</Id>
-						<Name><![CDATA[Stair_R]]></Name>
-						<X>0</X><Y>10</Y>
-						<PublicFlag>false</PublicFlag>
-						<PresentationFlag>true</PresentationFlag>
-						<ShowLabel>true</ShowLabel>
-						<Dx>20</Dx>
-						<Dy>0</Dy>
-						<Dz>0</Dz>
-						<AngleX>30</AngleX>
-						<AngleZ>0</AngleZ>
-						<SlopeType>angle</SlopeType>	
-					</Slope>
-
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>20</X><Y>0</Y></Point>
-						<Point><X>20</X><Y>35</Y></Point>
-						<Point><X>35</X><Y>35</Y></Point>
-						<Point><X>35</X><Y>-30</Y></Point>
-						<Point><X>0</X><Y>-30</Y></Point>
-					</Points>
-				</PolygonNode>
-				<TargetLine>
 					<Id>1772307569661</Id>
 					<Name><![CDATA[StairExitL]]></Name>
 					<X>270</X><Y>115</Y>
@@ -7163,7 +6835,7 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 				<Wall>
 					<Id>1772307569665</Id>
 					<Name><![CDATA[wall100]]></Name>
-					<X>275</X><Y>155</Y>
+					<X>276</X><Y>155</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7178,196 +6850,16 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 					<Closed>false</Closed>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>-10.15346165133619</X><Y>-22.845288715506427</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-60</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-35</Y><Z>0</Z></Point>
-						<Point><X>-70</X><Y>-20</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-45</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-20</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>-45</Y><Z>0</Z></Point>
+						<Point><X>-20</X><Y>-45</Y><Z>0</Z></Point>
+						<Point><X>5</X><Y>-45</Y><Z>0</Z></Point>
+						<Point><X>-9.847</X><Y>-22.155</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
-				<PolygonNode>
-					<Id>1772307569672</Id>
-					<Name><![CDATA[Stair_L]]></Name>
-					<X>290</X><Y>145</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<EmbeddedObject>
-						<Id>1772307569677</Id>
-						<ActiveObjectClass>
-							<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
-							<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
-						</ActiveObjectClass>
-						<GenericParameterSubstitute>
-							<GenericParameterSubstituteReference>
-								<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
-								<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
-								<ItemName><![CDATA[1574694148121]]></ItemName>
-							</GenericParameterSubstituteReference>
-						</GenericParameterSubstitute>
-						<Parameters>
-							<Parameter>
-								<Name><![CDATA[appliedClass]]></Name>
-								<Value Class="EntityCodeValue">
-									<IsAgentEntity>false</IsAgentEntity>
-									<EntityEmbeddedObject>
-										<Id>1772307471550</Id>
-										<ActiveObjectClass>
-											<PackageName><![CDATA[evakuierung]]></PackageName>
-											<ClassName><![CDATA[Pedestrian]]></ClassName>
-										</ActiveObjectClass>
-										<GenericParameterSubstitute>
-											<GenericParameterSubstituteReference>
-												<PackageName><![CDATA[evakuierung]]></PackageName>
-												<ClassName><![CDATA[Pedestrian]]></ClassName>
-												<ItemName><![CDATA[1772028769382]]></ItemName>
-											</GenericParameterSubstituteReference>
-										</GenericParameterSubstitute>
-										<Parameters>
-											<Parameter>
-												<Name><![CDATA[x_pos]]></Name>
-											</Parameter>
-											<Parameter>
-												<Name><![CDATA[y_pos]]></Name>
-											</Parameter>
-										</Parameters>
-										<ReplicationFlag>true</ReplicationFlag>
-										<Replication Class="CodeValue">
-											<Code><![CDATA[100]]></Code>
-										</Replication>
-										<CollectionType>ARRAY_LIST_BASED</CollectionType>
-										<InitialLocationType>XYZ</InitialLocationType>
-										<ColumnCode Class="CodeValue">
-											<Code><![CDATA[0]]></Code>
-										</ColumnCode>
-										<RowCode Class="CodeValue">
-											<Code><![CDATA[0]]></Code>
-										</RowCode>
-										<LocationNameCode Class="CodeValue">
-											<Code><![CDATA[""]]></Code>
-										</LocationNameCode>
-										<InitializationType>LOAD_FROM_DATABASE</InitializationType>
-										<InitializationDatabaseTableQuery>
-											<Id>1772307471551</Id>
-											<TableReference>
-											</TableReference>
-										</InitializationDatabaseTableQuery>
-										<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-										<QuantityColumn>
-										</QuantityColumn>
-									</EntityEmbeddedObject>
-								</Value>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[speedRestricted]]></Name>
-								<Value Class="CodeValue">
-									<Code><![CDATA[true]]></Code>
-								</Value>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[maxSpeed]]></Name>
-								<Value Class="CodeUnitValue">
-									<Code><![CDATA[0.5]]></Code>
-									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-								</Value>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[accessRestricted]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[accessRestrictionType]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[accessRestrictionCondition]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[capacity]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[throughput]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[schedule]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[avoidedIfClosed]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onEnter]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onEnterDenied]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onExit]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onOpen]]></Name>
-							</Parameter>
-							<Parameter>
-								<Name><![CDATA[onClose]]></Name>
-							</Parameter>
-						</Parameters>
-						<ReplicationFlag>false</ReplicationFlag>
-						<Replication Class="CodeValue">
-							<Code><![CDATA[100]]></Code>
-						</Replication>
-						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>XYZ</InitialLocationType>
-						<ColumnCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</ColumnCode>
-						<RowCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</RowCode>
-						<LocationNameCode Class="CodeValue">
-							<Code><![CDATA[""]]></Code>
-						</LocationNameCode>
-						<InitializationType>SPECIFIED_NUMBER</InitializationType>
-						<InitializationDatabaseTableQuery>
-							<Id>1772307569676</Id>
-							<TableReference>
-							</TableReference>
-						</InitializationDatabaseTableQuery>
-						<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-						<QuantityColumn>
-						</QuantityColumn>
-					</EmbeddedObject>
-					<LineColor>-4144960</LineColor>
-					<FillColor>1019265216</FillColor>
-					<LineWidth>1</LineWidth>
-					<LineMaterial>null</LineMaterial>
-					<FillMaterial>null</FillMaterial>
-					<LineStyle>DASHED</LineStyle>
-					<AttractorsLayout>random</AttractorsLayout>
-					<Sloped>false</Sloped>
-					<Slope>
-						<Id>1772307569670</Id>
-						<Name><![CDATA[Stair_L]]></Name>
-						<X>0</X><Y>10</Y>
-						<PublicFlag>false</PublicFlag>
-						<PresentationFlag>true</PresentationFlag>
-						<ShowLabel>true</ShowLabel>
-						<Dx>20</Dx>
-						<Dy>0</Dy>
-						<Dz>0</Dz>
-						<AngleX>30</AngleX>
-						<AngleZ>0</AngleZ>
-						<SlopeType>angle</SlopeType>	
-					</Slope>
-
-					<Points>
-						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-15</X><Y>0</Y></Point>
-						<Point><X>-15</X><Y>-35</Y></Point>
-						<Point><X>-35</X><Y>-35</Y></Point>
-						<Point><X>-35</X><Y>30</Y></Point>
-						<Point><X>0</X><Y>30</Y></Point>
-					</Points>
-				</PolygonNode>
 				<EmbeddedObjectPresentation>
 					<Id>1772312746370</Id>
 					<Name><![CDATA[pedEnterFromRoom_presentation]]></Name>
@@ -7805,6 +7297,422 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 					<EnableAttenuation>true</EnableAttenuation>
 					<ColorScheme>LINEAR</ColorScheme>
 				</DensityMap>
+				<PolygonNode>
+					<Id>1772307569672</Id>
+					<Name><![CDATA[Stair_L]]></Name>
+					<X>275</X><Y>125</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<EmbeddedObject>
+						<Id>1772307569677</Id>
+						<ActiveObjectClass>
+							<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
+							<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
+						</ActiveObjectClass>
+						<GenericParameterSubstitute>
+							<GenericParameterSubstituteReference>
+								<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
+								<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
+								<ItemName><![CDATA[1574694148121]]></ItemName>
+							</GenericParameterSubstituteReference>
+						</GenericParameterSubstitute>
+						<Parameters>
+							<Parameter>
+								<Name><![CDATA[appliedClass]]></Name>
+								<Value Class="EntityCodeValue">
+									<IsAgentEntity>false</IsAgentEntity>
+									<EntityEmbeddedObject>
+										<Id>1772307471550</Id>
+										<ActiveObjectClass>
+											<PackageName><![CDATA[evakuierung]]></PackageName>
+											<ClassName><![CDATA[Pedestrian]]></ClassName>
+										</ActiveObjectClass>
+										<GenericParameterSubstitute>
+											<GenericParameterSubstituteReference>
+												<PackageName><![CDATA[evakuierung]]></PackageName>
+												<ClassName><![CDATA[Pedestrian]]></ClassName>
+												<ItemName><![CDATA[1772028769382]]></ItemName>
+											</GenericParameterSubstituteReference>
+										</GenericParameterSubstitute>
+										<Parameters>
+											<Parameter>
+												<Name><![CDATA[x_pos]]></Name>
+											</Parameter>
+											<Parameter>
+												<Name><![CDATA[y_pos]]></Name>
+											</Parameter>
+										</Parameters>
+										<ReplicationFlag>true</ReplicationFlag>
+										<Replication Class="CodeValue">
+											<Code><![CDATA[100]]></Code>
+										</Replication>
+										<CollectionType>ARRAY_LIST_BASED</CollectionType>
+										<InitialLocationType>XYZ</InitialLocationType>
+										<ColumnCode Class="CodeValue">
+											<Code><![CDATA[0]]></Code>
+										</ColumnCode>
+										<RowCode Class="CodeValue">
+											<Code><![CDATA[0]]></Code>
+										</RowCode>
+										<LocationNameCode Class="CodeValue">
+											<Code><![CDATA[""]]></Code>
+										</LocationNameCode>
+										<InitializationType>LOAD_FROM_DATABASE</InitializationType>
+										<InitializationDatabaseTableQuery>
+											<Id>1772307471551</Id>
+											<TableReference>
+											</TableReference>
+										</InitializationDatabaseTableQuery>
+										<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+										<QuantityColumn>
+										</QuantityColumn>
+									</EntityEmbeddedObject>
+								</Value>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[speedRestricted]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[maxSpeed]]></Name>
+								<Value Class="CodeUnitValue">
+									<Code><![CDATA[0.5]]></Code>
+									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+								</Value>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[accessRestricted]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[accessRestrictionType]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[accessRestrictionCondition]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[capacity]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[throughput]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[schedule]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[avoidedIfClosed]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onEnter]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onEnterDenied]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onExit]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onOpen]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onClose]]></Name>
+							</Parameter>
+						</Parameters>
+						<ReplicationFlag>false</ReplicationFlag>
+						<Replication Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</Replication>
+						<CollectionType>ARRAY_LIST_BASED</CollectionType>
+						<InitialLocationType>XYZ</InitialLocationType>
+						<ColumnCode Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</ColumnCode>
+						<RowCode Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</RowCode>
+						<LocationNameCode Class="CodeValue">
+							<Code><![CDATA[""]]></Code>
+						</LocationNameCode>
+						<InitializationType>SPECIFIED_NUMBER</InitializationType>
+						<InitializationDatabaseTableQuery>
+							<Id>1772307569676</Id>
+							<TableReference>
+							</TableReference>
+						</InitializationDatabaseTableQuery>
+						<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+						<QuantityColumn>
+						</QuantityColumn>
+					</EmbeddedObject>
+					<LineColor>-4144960</LineColor>
+					<FillColor>1019265216</FillColor>
+					<LineWidth>1</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillMaterial>null</FillMaterial>
+					<LineStyle>DASHED</LineStyle>
+					<AttractorsLayout>random</AttractorsLayout>
+					<Sloped>false</Sloped>
+					<Slope>
+						<Id>1772307569670</Id>
+						<Name><![CDATA[Stair_L]]></Name>
+						<X>0</X><Y>10</Y>
+						<PublicFlag>false</PublicFlag>
+						<PresentationFlag>true</PresentationFlag>
+						<ShowLabel>true</ShowLabel>
+						<Dx>20</Dx>
+						<Dy>0</Dy>
+						<Dz>0</Dz>
+						<AngleX>30</AngleX>
+						<AngleZ>0</AngleZ>
+						<SlopeType>angle</SlopeType>	
+					</Slope>
+
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>15</X><Y>0</Y></Point>
+						<Point><X>15</X><Y>-29</Y></Point>
+						<Point><X>-20</X><Y>-29</Y></Point>
+						<Point><X>-20</X><Y>50</Y></Point>
+						<Point><X>15</X><Y>50</Y></Point>
+						<Point><X>15</X><Y>21</Y></Point>
+						<Point><X>0</X><Y>21</Y></Point>
+						<Point><X>0</X><Y>10</Y></Point>
+					</Points>
+				</PolygonNode>
+				<TargetLine>
+					<Id>1772773019504</Id>
+					<Name><![CDATA[StairExitR]]></Name>
+					<X>1032</X><Y>155</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-16744448</LineColor>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>10</X><Y>0</Y></Point>
+					</Points>
+				</TargetLine>
+				<Wall>
+					<Id>1772773019507</Id>
+					<Name><![CDATA[wall115]]></Name>
+					<X>1028</X><Y>115</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>3</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>8.835014217964424</X><Y>23.386802341670535</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>17</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>-8</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>8.165</X><Y>21.613</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<PolygonNode>
+					<Id>1772773019514</Id>
+					<Name><![CDATA[Stair_R]]></Name>
+					<X>1026</X><Y>145</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<EmbeddedObject>
+						<Id>1772773019519</Id>
+						<ActiveObjectClass>
+							<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
+							<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
+						</ActiveObjectClass>
+						<GenericParameterSubstitute>
+							<GenericParameterSubstituteReference>
+								<PackageName><![CDATA[com.anylogic.libraries.modules.markup_descriptors]]></PackageName>
+								<ClassName><![CDATA[AreaNodeDescriptor]]></ClassName>
+								<ItemName><![CDATA[1574694148121]]></ItemName>
+							</GenericParameterSubstituteReference>
+						</GenericParameterSubstitute>
+						<Parameters>
+							<Parameter>
+								<Name><![CDATA[appliedClass]]></Name>
+								<Value Class="EntityCodeValue">
+									<IsAgentEntity>false</IsAgentEntity>
+									<EntityEmbeddedObject>
+										<Id>1772307471550</Id>
+										<ActiveObjectClass>
+											<PackageName><![CDATA[evakuierung]]></PackageName>
+											<ClassName><![CDATA[Pedestrian]]></ClassName>
+										</ActiveObjectClass>
+										<GenericParameterSubstitute>
+											<GenericParameterSubstituteReference>
+												<PackageName><![CDATA[evakuierung]]></PackageName>
+												<ClassName><![CDATA[Pedestrian]]></ClassName>
+												<ItemName><![CDATA[1772028769382]]></ItemName>
+											</GenericParameterSubstituteReference>
+										</GenericParameterSubstitute>
+										<Parameters>
+											<Parameter>
+												<Name><![CDATA[x_pos]]></Name>
+											</Parameter>
+											<Parameter>
+												<Name><![CDATA[y_pos]]></Name>
+											</Parameter>
+										</Parameters>
+										<ReplicationFlag>true</ReplicationFlag>
+										<Replication Class="CodeValue">
+											<Code><![CDATA[100]]></Code>
+										</Replication>
+										<CollectionType>ARRAY_LIST_BASED</CollectionType>
+										<InitialLocationType>XYZ</InitialLocationType>
+										<ColumnCode Class="CodeValue">
+											<Code><![CDATA[0]]></Code>
+										</ColumnCode>
+										<RowCode Class="CodeValue">
+											<Code><![CDATA[0]]></Code>
+										</RowCode>
+										<LocationNameCode Class="CodeValue">
+											<Code><![CDATA[""]]></Code>
+										</LocationNameCode>
+										<InitializationType>LOAD_FROM_DATABASE</InitializationType>
+										<InitializationDatabaseTableQuery>
+											<Id>1772307471551</Id>
+											<TableReference>
+											</TableReference>
+										</InitializationDatabaseTableQuery>
+										<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+										<QuantityColumn>
+										</QuantityColumn>
+									</EntityEmbeddedObject>
+								</Value>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[speedRestricted]]></Name>
+								<Value Class="CodeValue">
+									<Code><![CDATA[true]]></Code>
+								</Value>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[maxSpeed]]></Name>
+								<Value Class="CodeUnitValue">
+									<Code><![CDATA[0.5]]></Code>
+									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+								</Value>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[accessRestricted]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[accessRestrictionType]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[accessRestrictionCondition]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[capacity]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[throughput]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[schedule]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[avoidedIfClosed]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onEnter]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onEnterDenied]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onExit]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onOpen]]></Name>
+							</Parameter>
+							<Parameter>
+								<Name><![CDATA[onClose]]></Name>
+							</Parameter>
+						</Parameters>
+						<ReplicationFlag>false</ReplicationFlag>
+						<Replication Class="CodeValue">
+							<Code><![CDATA[100]]></Code>
+						</Replication>
+						<CollectionType>ARRAY_LIST_BASED</CollectionType>
+						<InitialLocationType>XYZ</InitialLocationType>
+						<ColumnCode Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</ColumnCode>
+						<RowCode Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</RowCode>
+						<LocationNameCode Class="CodeValue">
+							<Code><![CDATA[""]]></Code>
+						</LocationNameCode>
+						<InitializationType>SPECIFIED_NUMBER</InitializationType>
+						<InitializationDatabaseTableQuery>
+							<Id>1772773019518</Id>
+							<TableReference>
+							</TableReference>
+						</InitializationDatabaseTableQuery>
+						<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+						<QuantityColumn>
+						</QuantityColumn>
+					</EmbeddedObject>
+					<LineColor>-4144960</LineColor>
+					<FillColor>1019265216</FillColor>
+					<LineWidth>1</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillMaterial>null</FillMaterial>
+					<LineStyle>DASHED</LineStyle>
+					<AttractorsLayout>random</AttractorsLayout>
+					<Sloped>false</Sloped>
+					<Slope>
+						<Id>1772773019512</Id>
+						<Name><![CDATA[Stair_R]]></Name>
+						<X>0</X><Y>10</Y>
+						<PublicFlag>false</PublicFlag>
+						<PresentationFlag>true</PresentationFlag>
+						<ShowLabel>true</ShowLabel>
+						<Dx>20</Dx>
+						<Dy>0</Dy>
+						<Dz>0</Dz>
+						<AngleX>30</AngleX>
+						<AngleZ>0</AngleZ>
+						<SlopeType>angle</SlopeType>	
+					</Slope>
+
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-15</X><Y>0</Y></Point>
+						<Point><X>-15</X><Y>29</Y></Point>
+						<Point><X>20</X><Y>29</Y></Point>
+						<Point><X>20</X><Y>-50</Y></Point>
+						<Point><X>-15</X><Y>-50</Y></Point>
+						<Point><X>-15</X><Y>-21</Y></Point>
+						<Point><X>0</X><Y>-21</Y></Point>
+						<Point><X>0</X><Y>-10</Y></Point>
+					</Points>
+				</PolygonNode>
 			</Presentation>
 
 				</Level>
@@ -11597,6 +11505,10 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 					</Parameter>
 					<Parameter>
 						<Name><![CDATA[y]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[pedStartTime]]></Name>
 						<Type><![CDATA[double]]></Type>
 					</Parameter>
 				</Function>
@@ -20151,6 +20063,7 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 	<Uuid>404652e6-561a-404c-aab2-ab7415f40ef5</Uuid>
 	<Uuid>6fd6cd57-6dfe-4fc6-be0b-c74065351957</Uuid>
 	<Uuid>3325dc48-3ad4-41e3-836f-dfd0e98fe1ed</Uuid>
+	<Uuid>bb27038a-0f3a-48bb-b235-4a44066a14aa</Uuid>
 	<Uuid>3f69ef3d-706e-41a6-8af0-11658c5eef68</Uuid>
 	<Uuid>3f6fe405-e047-4304-91d6-6eee206d1106</Uuid>
 	<Uuid>820d2b51-5b4a-48e7-b0b6-e46418e3c0f2</Uuid>
@@ -20206,5 +20119,7 @@ System.out.println("Ped " + name + " has reached the right stair.");]]></Code>
 	<Uuid>1737c8c6-b526-4dd8-589e-ee4e205b06f4</Uuid>
 	<Uuid>6a43bef6-8b70-4253-a828-82c3ab399655</Uuid>
 	<Uuid>0a27038a-0f3a-48bb-b235-4a44066a1402</Uuid>
+	<Uuid>0a9ec2c3-5e18-4c0a-a183-fd86d9d9a08b</Uuid>
+	<Uuid>2216cdd0-177c-5678-9e88-dd8b95313334</Uuid>
 </ConvertersApplied>
 </AnyLogicWorkspace>
