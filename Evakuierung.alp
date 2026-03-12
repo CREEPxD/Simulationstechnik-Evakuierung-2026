@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.7.202512121159" AlpVersion="8.9.7">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.8.202602251703" AlpVersion="8.9.7">
 <Model>
 	<Id>1771946744572</Id>
 	<Name><![CDATA[Evakuierung]]></Name>
@@ -176,6 +176,30 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1773158463298</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1773338657691</Id>
+					<Name><![CDATA[stairWalkingSpeed]]></Name>
+					<X>750</X><Y>-60</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0.5]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1773338657689</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -1915,68 +1939,16 @@ Double y_pos = this.getY()+ped.getY();
 
 			<ContainerLinks>
 				<ContainerLink>
-					<Id>1772380757053</Id>
-					<Name><![CDATA[floor_E1]]></Name>
-					<X>150</X><Y>-100</Y>
+					<Id>1773339709628</Id>
+					<Name><![CDATA[floor]]></Name>
+					<X>650</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<ActiveObjectClass>
 						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E1]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1772380757055</Id>
-					<Name><![CDATA[main]]></Name>
-					<X>250</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Main]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1773065861509</Id>
-					<Name><![CDATA[floor_E02]]></Name>
-					<X>350</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E02]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1773070877304</Id>
-					<Name><![CDATA[floor_E03]]></Name>
-					<X>450</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E03]]></ClassName>
-					</ActiveObjectClass>
-				</ContainerLink>
-				<ContainerLink>
-					<Id>1773159480643</Id>
-					<Name><![CDATA[floor_E04]]></Name>
-					<X>550</X><Y>-100</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Floor_E04]]></ClassName>
+						<ClassName><![CDATA[Floor]]></ClassName>
 					</ActiveObjectClass>
 				</ContainerLink>
 			</ContainerLinks>
@@ -2152,7 +2124,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772308824434</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>350</X><Y>470</Y>
+					<X>440</X><Y>430</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2185,7 +2157,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772308857865</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>270</X><Y>490</Y>
+					<X>360</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2218,7 +2190,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772321565422</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>650</X><Y>470</Y>
+					<X>740</X><Y>430</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2251,7 +2223,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772321565424</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>500</X><Y>470</Y>
+					<X>590</X><Y>430</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2284,7 +2256,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772321578578</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>650</X><Y>530</Y>
+					<X>740</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2317,7 +2289,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772321578580</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>500</X><Y>530</Y>
+					<X>590</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2350,7 +2322,7 @@ Double y_pos = this.getY()+ped.getY();
 				<Connector>
 					<Id>1772380569090</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>40</X><Y>470</Y>
+					<X>130</X><Y>430</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2387,7 +2359,7 @@ Double y_pos = this.getY()+ped.getY();
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1772315292437</Id>
 					<Name><![CDATA[acceptPedsFromRooms]]></Name>
-					<X>30</X><Y>400</Y>
+					<X>120</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2517,6 +2489,42 @@ pedEnterFromRoom.take(ped);]]></Body>
 							<PackageName><![CDATA[evakuierung]]></PackageName>
 							<ClassName><![CDATA[room_positions]]></ClassName>
 						</TableReference>
+						<Condition>
+							<Id>1773339860797</Id>
+							<ColumnReference>
+							</ColumnReference>
+							<Operator>EQUALS</Operator>
+						</Condition>
+						<Condition>
+							<Id>1773339865080</Id>
+							<ColumnReference>
+							</ColumnReference>
+							<Operator>EQUALS</Operator>
+						</Condition>
+						<Condition>
+							<Id>1773339867966</Id>
+							<ColumnReference>
+							</ColumnReference>
+							<Operator>EQUALS</Operator>
+						</Condition>
+						<Condition>
+							<Id>1773339869816</Id>
+							<ColumnReference>
+							</ColumnReference>
+							<Operator>EQUALS</Operator>
+						</Condition>
+						<Condition>
+							<Id>1773339870375</Id>
+							<ColumnReference>
+							</ColumnReference>
+							<Operator>EQUALS</Operator>
+						</Condition>
+						<Condition>
+							<Id>1773339870748</Id>
+							<ColumnReference>
+							</ColumnReference>
+							<Operator>EQUALS</Operator>
+						</Condition>
 					</InitializationDatabaseTableQuery>
 					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
 					<QuantityColumn>
@@ -2559,7 +2567,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1772308255713</Id>
 					<Name><![CDATA[pedEnterFromRoom]]></Name>
-					<X>0</X><Y>460</Y>
+					<X>90</X><Y>420</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -2696,7 +2704,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1772308603634</Id>
 					<Name><![CDATA[pedGoToLeftStair]]></Name>
-					<X>350</X><Y>460</Y>
+					<X>440</X><Y>420</Y>
 					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2787,7 +2795,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1772308627246</Id>
 					<Name><![CDATA[changeFloorL]]></Name>
-					<X>650</X><Y>470</Y>
+					<X>740</X><Y>430</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2845,7 +2853,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<EmbeddedObject>
 					<Id>1772308822588</Id>
 					<Name><![CDATA[pedChooseStair]]></Name>
-					<X>240</X><Y>470</Y>
+					<X>330</X><Y>430</Y>
 					<Label><X>-35</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2975,7 +2983,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<EmbeddedObject>
 					<Id>1772308851335</Id>
 					<Name><![CDATA[pedGoToRightStair]]></Name>
-					<X>350</X><Y>520</Y>
+					<X>440</X><Y>480</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3066,7 +3074,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<EmbeddedObject>
 					<Id>1772321563040</Id>
 					<Name><![CDATA[teleportCompensationLStair]]></Name>
-					<X>500</X><Y>460</Y>
+					<X>590</X><Y>420</Y>
 					<Label><X>-55</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3182,7 +3190,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<EmbeddedObject>
 					<Id>1772321578557</Id>
 					<Name><![CDATA[teleportCompensationRStair]]></Name>
-					<X>500</X><Y>520</Y>
+					<X>590</X><Y>480</Y>
 					<Label><X>-50</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3296,81 +3304,9 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1772401674060</Id>
-					<Name><![CDATA[pedestriansInFloor]]></Name>
-					<X>200</X><Y>400</Y>
-					<Label><X>10</X><Y>-5</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Pedestrian]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Pedestrian]]></ClassName>
-							<ItemName><![CDATA[1772028769382]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[x_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[y_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[startTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[comfortableSpeed]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[currentSpeed]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-					</InitialSpeedCode>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>EMPTY</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1772401674058</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1772773103710</Id>
 					<Name><![CDATA[changeFloorR]]></Name>
-					<X>650</X><Y>530</Y>
+					<X>740</X><Y>490</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3446,7 +3382,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					<Name><![CDATA[image]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -7036,7 +6972,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					<Name><![CDATA[StairExitL]]></Name>
 					<X>280</X><Y>125</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -7053,7 +6989,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					<X>268</X><Y>160</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
+					<PresentationFlag>false</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
@@ -7460,36 +7396,12 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 						<Point><X>-17.318</X><Y>19.591</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
-				<DensityMap>
-					<Id>1772453013077</Id>
-					<Name><![CDATA[densityMap]]></Name>
-					<X>1330</X><Y>30</Y>
-					<Label><X>-15</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<Width>10</Width>
-					<Height>200</Height>
-					<Transparency>0.25</Transparency>
-					<CriticalDensity>1.5</CriticalDensity>
-					<Type>PEDESTRIAN</Type>
-					<TimePeriod>COMPLETE</TimePeriod>
-					<WindowTime Class="UnitValue">
-						<Value Class="Double">5</Value>
-						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-					</WindowTime>
-					<DisplayedValue>MAX</DisplayedValue>
-					<EnableAttenuation>false</EnableAttenuation>
-					<ColorScheme>LINEAR</ColorScheme>
-				</DensityMap>
 				<PolygonNode>
 					<Id>1772307569672</Id>
 					<Name><![CDATA[Stair_L]]></Name>
 					<X>268</X><Y>125</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -7578,7 +7490,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 							<Parameter>
 								<Name><![CDATA[maxSpeed]]></Name>
 								<Value Class="CodeUnitValue">
-									<Code><![CDATA[0.5]]></Code>
+									<Code><![CDATA[main.stairWalkingSpeed]]></Code>
 									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 								</Value>
 							</Parameter>
@@ -7684,7 +7596,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					<Name><![CDATA[StairExitR]]></Name>
 					<X>1020</X><Y>125</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -7701,7 +7613,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					<X>1032</X><Y>115</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
+					<PresentationFlag>false</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
@@ -7728,7 +7640,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					<Name><![CDATA[Stair_R]]></Name>
 					<X>1030</X><Y>147</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -7817,7 +7729,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 							<Parameter>
 								<Name><![CDATA[maxSpeed]]></Name>
 								<Value Class="CodeUnitValue">
-									<Code><![CDATA[0.5]]></Code>
+									<Code><![CDATA[main.stairWalkingSpeed]]></Code>
 									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 								</Value>
 							</Parameter>
@@ -8093,6 +8005,30 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 						<Point><X>0</X><Y>72.809</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
+				<DensityMap>
+					<Id>1773339946378</Id>
+					<Name><![CDATA[densityMap]]></Name>
+					<X>1330</X><Y>30</Y>
+					<Label><X>-15</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Width>10</Width>
+					<Height>200</Height>
+					<Transparency>0.25</Transparency>
+					<CriticalDensity>1.5</CriticalDensity>
+					<Type>PEDESTRIAN</Type>
+					<TimePeriod>COMPLETE</TimePeriod>
+					<WindowTime Class="UnitValue">
+						<Value Class="Double">5</Value>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</WindowTime>
+					<DisplayedValue>MAX</DisplayedValue>
+					<EnableAttenuation>true</EnableAttenuation>
+					<ColorScheme>LOGARITHMIC</ColorScheme>
+				</DensityMap>
 			</Presentation>
 
 				</Level>
@@ -8201,7 +8137,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<Connector>
 					<Id>1773068258700</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>250</X><Y>470</Y>
+					<X>340</X><Y>430</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8234,7 +8170,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<Connector>
 					<Id>1773068258702</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>170</X><Y>490</Y>
+					<X>260</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8267,7 +8203,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<Connector>
 					<Id>1773068258706</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>400</X><Y>470</Y>
+					<X>490</X><Y>430</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8300,7 +8236,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<Connector>
 					<Id>1773068258710</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>400</X><Y>530</Y>
+					<X>490</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8333,7 +8269,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 				<Connector>
 					<Id>1773068265664</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>40</X><Y>470</Y>
+					<X>130</X><Y>430</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8370,7 +8306,7 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1773159166159</Id>
 					<Name><![CDATA[acceptPedsFromRooms]]></Name>
-					<X>30</X><Y>400</Y>
+					<X>120</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8536,81 +8472,9 @@ pedEnterFromRoom.take(ped);]]></Body>
 					</ParameterToDatabaseColumnMapping>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1773065861505</Id>
-					<Name><![CDATA[pedestriansInFloor]]></Name>
-					<X>200</X><Y>400</Y>
-					<Label><X>10</X><Y>-5</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Pedestrian]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Pedestrian]]></ClassName>
-							<ItemName><![CDATA[1772028769382]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[x_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[y_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[startTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[comfortableSpeed]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[currentSpeed]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-					</InitialSpeedCode>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>EMPTY</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1773065861503</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1773068258576</Id>
 					<Name><![CDATA[pedGoToExitRoundDoor]]></Name>
-					<X>250</X><Y>460</Y>
+					<X>340</X><Y>420</Y>
 					<Label><X>-25</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8701,7 +8565,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773068258595</Id>
 					<Name><![CDATA[evacuateRoundDoor]]></Name>
-					<X>400</X><Y>470</Y>
+					<X>490</X><Y>430</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8754,7 +8618,7 @@ if(pedestriansInFloor.isEmpty()&&time()>100) pauseSimulation();]]></Code>
 				<EmbeddedObject>
 					<Id>1773068258602</Id>
 					<Name><![CDATA[pedChooseExit]]></Name>
-					<X>140</X><Y>470</Y>
+					<X>230</X><Y>430</Y>
 					<Label><X>-35</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8881,7 +8745,7 @@ if(pedestriansInFloor.isEmpty()&&time()>100) pauseSimulation();]]></Code>
 				<EmbeddedObject>
 					<Id>1773068258626</Id>
 					<Name><![CDATA[pedGoToExitIB]]></Name>
-					<X>250</X><Y>520</Y>
+					<X>340</X><Y>480</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8972,7 +8836,7 @@ if(pedestriansInFloor.isEmpty()&&time()>100) pauseSimulation();]]></Code>
 				<EmbeddedObject>
 					<Id>1773068258697</Id>
 					<Name><![CDATA[evacuateIB]]></Name>
-					<X>400</X><Y>530</Y>
+					<X>490</X><Y>490</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -9025,7 +8889,7 @@ if(pedestriansInFloor.isEmpty()&&time()>100) pauseSimulation();]]></Code>
 				<EmbeddedObject>
 					<Id>1773159166167</Id>
 					<Name><![CDATA[pedEnterFromRoom]]></Name>
-					<X>0</X><Y>460</Y>
+					<X>90</X><Y>420</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -9179,7 +9043,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<Name><![CDATA[image]]></Name>
 					<X>-10</X><Y>-2</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -12339,7 +12203,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<Name><![CDATA[Stair_R]]></Name>
 					<X>1027</X><Y>156</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -12428,7 +12292,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 							<Parameter>
 								<Name><![CDATA[maxSpeed]]></Name>
 								<Value Class="CodeUnitValue">
-									<Code><![CDATA[0.5]]></Code>
+									<Code><![CDATA[main.stairWalkingSpeed]]></Code>
 									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 								</Value>
 							</Parameter>
@@ -12534,7 +12398,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<Name><![CDATA[Stair_L]]></Name>
 					<X>271.5</X><Y>134.921</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -12623,7 +12487,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 							<Parameter>
 								<Name><![CDATA[maxSpeed]]></Name>
 								<Value Class="CodeUnitValue">
-									<Code><![CDATA[0.5]]></Code>
+									<Code><![CDATA[main.stairWalkingSpeed]]></Code>
 									<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 								</Value>
 							</Parameter>
@@ -12727,9 +12591,9 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773068178207</Id>
 					<Name><![CDATA[Exit_Round_Door]]></Name>
-					<X>50</X><Y>40</Y>
+					<X>75</X><Y>40</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -12743,9 +12607,9 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773068204282</Id>
 					<Name><![CDATA[Exit_IB]]></Name>
-					<X>350</X><Y>0</Y>
+					<X>350</X><Y>10</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -12753,33 +12617,9 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-50</X><Y>0</Y></Point>
+						<Point><X>-40</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
-				<DensityMap>
-					<Id>1773162764748</Id>
-					<Name><![CDATA[densityMap]]></Name>
-					<X>1330</X><Y>39.552</Y>
-					<Label><X>-15</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<Z>0</Z>
-					<Width>10</Width>
-					<Height>198.6013986013986</Height>
-					<Transparency>0.25</Transparency>
-					<CriticalDensity>1.5</CriticalDensity>
-					<Type>PEDESTRIAN</Type>
-					<TimePeriod>COMPLETE</TimePeriod>
-					<WindowTime Class="UnitValue">
-						<Value Class="Double">5</Value>
-						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-					</WindowTime>
-					<DisplayedValue>MAX</DisplayedValue>
-					<EnableAttenuation>true</EnableAttenuation>
-					<ColorScheme>LOGARITHMIC</ColorScheme>
-				</DensityMap>
 				<Wall>
 					<Id>1773242016015</Id>
 					<Name><![CDATA[wall13]]></Name>
@@ -13100,6 +12940,148 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Point><X>-19.27</X><Y>3.022</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
+				<Wall>
+					<Id>1773339174756</Id>
+					<Name><![CDATA[wall117]]></Name>
+					<X>1032</X><Y>115</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>3</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>9.751645609640121</X><Y>23.019674365724345</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>19.063</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>-5.937</X><Y>45</Y><Z>0</Z></Point>
+						<Point><X>9.311</X><Y>21.98</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773339215106</Id>
+					<Name><![CDATA[wall118]]></Name>
+					<X>268</X><Y>160</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>3</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10.343</X><Y>-24.864</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-27.21</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-48.978</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-21.768</Y><Z>0</Z></Point>
+						<Point><X>-25.468</X><Y>-48.978</Y><Z>0</Z></Point>
+						<Point><X>-20.375</X><Y>-48.978</Y><Z>0</Z></Point>
+						<Point><X>5.093</X><Y>-48.978</Y><Z>0</Z></Point>
+						<Point><X>-10.031</X><Y>-24.113</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<DensityMap>
+					<Id>1773339897189</Id>
+					<Name><![CDATA[densityMap]]></Name>
+					<X>1330</X><Y>30</Y>
+					<Label><X>-15</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<Width>10</Width>
+					<Height>200</Height>
+					<Transparency>0.25</Transparency>
+					<CriticalDensity>1.5</CriticalDensity>
+					<Type>PEDESTRIAN</Type>
+					<TimePeriod>COMPLETE</TimePeriod>
+					<WindowTime Class="UnitValue">
+						<Value Class="Double">5</Value>
+						<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+					</WindowTime>
+					<DisplayedValue>MAX</DisplayedValue>
+					<EnableAttenuation>true</EnableAttenuation>
+					<ColorScheme>LOGARITHMIC</ColorScheme>
+				</DensityMap>
+				<Wall>
+					<Id>1773340381839</Id>
+					<Name><![CDATA[wall82]]></Name>
+					<X>310.275</X><Y>20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0.172</X><Y>24.999</Y><Z>0</Z></Point>
+						<Point><X>-0.458</X><Y>-24.996</Y><Z>0</Z></Point>
+						<Point><X>-0.275</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>0.183</X><Y>9.996</Y><Z>0</Z></Point>
+						<Point><X>24.725</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>39.725</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>14.725</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>39.725</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>39.725</X><Y>-1.038</Y><Z>0</Z></Point>
+						<Point><X>39.725</X><Y>-26.038</Y><Z>0</Z></Point>
+						<Point><X>19.725</X><Y>-40</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340397432</Id>
+					<Name><![CDATA[wall119]]></Name>
+					<X>90</X><Y>40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-20</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>5</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-20</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>-20</X><Y>50</Y><Z>0</Z></Point>
+						<Point><X>-20</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>5</X><Y>50</Y><Z>0</Z></Point>
+						<Point><X>2.222</X><Y>50</Y><Z>0</Z></Point>
+						<Point><X>-22.778</X><Y>50</Y><Z>0</Z></Point>
+						<Point><X>-60</X><Y>50</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
 			</Presentation>
 
 				</Level>
@@ -13206,7 +13188,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1772315170948</Id>
 					<Name><![CDATA[acceptPedsFromRooms]]></Name>
-					<X>30</X><Y>400</Y>
+					<X>120</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13255,11 +13237,85 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				</AgentLink>
 			</AgentLinks>
 
+			<EmbeddedObjects>
+				<EmbeddedObject>
+					<Id>1773339709608</Id>
+					<Name><![CDATA[pedestriansInFloor]]></Name>
+					<X>290</X><Y>360</Y>
+					<Label><X>10</X><Y>-5</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Pedestrian]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[evakuierung]]></PackageName>
+							<ClassName><![CDATA[Pedestrian]]></ClassName>
+							<ItemName><![CDATA[1772028769382]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[x_pos]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[y_pos]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[startTime]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[comfortableSpeed]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[currentSpeed]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>true</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InEnvironment>true</InEnvironment>
+					<InitialSpeedCode Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+					</InitialSpeedCode>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<XCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</XCode>
+					<YCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</YCode>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>EMPTY</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1773339709606</Id>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+			</EmbeddedObjects>
 
 			<Presentation>
 				<Level>
 					<Id>1772312528452</Id>
-					<Name><![CDATA[level]]></Name>
+					<Name><![CDATA[Mylevel]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
@@ -13376,7 +13432,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Variable Class="CollectionVariable">
 					<Id>1773072006366</Id>
 					<Name><![CDATA[exits]]></Name>
-					<X>70</X><Y>670</Y>
+					<X>120</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13396,7 +13452,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773070877326</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>100</X><Y>750</Y>
+					<X>150</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13429,7 +13485,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072664295</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>510</X><Y>700</Y>
+					<X>560</X><Y>420</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13462,7 +13518,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072757155</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>330</X><Y>770</Y>
+					<X>380</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13495,7 +13551,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072788322</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>330</X><Y>790</Y>
+					<X>380</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13528,7 +13584,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072791838</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>330</X><Y>810</Y>
+					<X>380</X><Y>530</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13561,7 +13617,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072802477</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>50</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13594,7 +13650,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072817692</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>50</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13627,7 +13683,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072828077</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>50</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13660,7 +13716,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773072836725</Id>
 					<Name><![CDATA[connector8]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>50</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13697,7 +13753,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1773071789571</Id>
 					<Name><![CDATA[getDistanceTo]]></Name>
-					<X>230</X><Y>640</Y>
+					<X>120</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13717,7 +13773,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1773071986747</Id>
 					<Name><![CDATA[getExit]]></Name>
-					<X>340</X><Y>640</Y>
+					<X>230</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13748,7 +13804,7 @@ return exits.indexOf(line)+1;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1773159309442</Id>
 					<Name><![CDATA[acceptPedsFromRooms]]></Name>
-					<X>70</X><Y>640</Y>
+					<X>120</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -13916,7 +13972,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773070877205</Id>
 					<Name><![CDATA[pedChooseExit]]></Name>
-					<X>300</X><Y>750</Y>
+					<X>350</X><Y>470</Y>
 					<Label><X>-35</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14044,81 +14100,9 @@ pedEnterFromRoom.take(ped);]]></Body>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1773070877300</Id>
-					<Name><![CDATA[pedestriansInFloor]]></Name>
-					<X>70</X><Y>580</Y>
-					<Label><X>10</X><Y>-5</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Pedestrian]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Pedestrian]]></ClassName>
-							<ItemName><![CDATA[1772028769382]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[x_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[y_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[startTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[comfortableSpeed]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[currentSpeed]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-					</InitialSpeedCode>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>EMPTY</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1773070877298</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1773072661853</Id>
 					<Name><![CDATA[pedGoTo_IB_L]]></Name>
-					<X>510</X><Y>690</Y>
+					<X>560</X><Y>410</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14206,7 +14190,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773072752020</Id>
 					<Name><![CDATA[pedGoTo_IB_R]]></Name>
-					<X>510</X><Y>750</Y>
+					<X>560</X><Y>470</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14294,7 +14278,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773072767495</Id>
 					<Name><![CDATA[pedGoTo_ID_L]]></Name>
-					<X>510</X><Y>810</Y>
+					<X>560</X><Y>530</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14382,7 +14366,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773072778219</Id>
 					<Name><![CDATA[pedGoTo_ID_R]]></Name>
-					<X>510</X><Y>870</Y>
+					<X>560</X><Y>590</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14470,7 +14454,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773072800248</Id>
 					<Name><![CDATA[evacuate_IB_L]]></Name>
-					<X>620</X><Y>700</Y>
+					<X>670</X><Y>420</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14522,7 +14506,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773072817689</Id>
 					<Name><![CDATA[evacuate_IB_R]]></Name>
-					<X>620</X><Y>760</Y>
+					<X>670</X><Y>480</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14574,7 +14558,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773072828074</Id>
 					<Name><![CDATA[evacuate_ID_L]]></Name>
-					<X>620</X><Y>820</Y>
+					<X>670</X><Y>540</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14626,7 +14610,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773072836722</Id>
 					<Name><![CDATA[evacuate_ID_R]]></Name>
-					<X>620</X><Y>880</Y>
+					<X>670</X><Y>600</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14678,7 +14662,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773159309448</Id>
 					<Name><![CDATA[pedEnterFromRoom]]></Name>
-					<X>60</X><Y>740</Y>
+					<X>110</X><Y>460</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -18796,9 +18780,9 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773070925148</Id>
 					<Name><![CDATA[Exit_IB_L]]></Name>
-					<X>60</X><Y>-30</Y>
+					<X>100</X><Y>-15</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -18806,15 +18790,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>340</X><Y>0</Y></Point>
+						<Point><X>150</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
 					<Id>1773070990393</Id>
 					<Name><![CDATA[Exit_ID_L]]></Name>
-					<X>30</X><Y>280</Y>
+					<X>95</X><Y>265</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -18822,15 +18806,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>340</X><Y>0</Y></Point>
+						<Point><X>155</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
 					<Id>1773071010672</Id>
 					<Name><![CDATA[Exit_ID_R]]></Name>
-					<X>980</X><Y>290</Y>
+					<X>1005</X><Y>285</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -18838,15 +18822,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>0</Y></Point>
+						<Point><X>25</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
 					<Id>1773071037500</Id>
 					<Name><![CDATA[Exit_IB_R]]></Name>
-					<X>820</X><Y>-100</Y>
+					<X>920</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -18854,15 +18838,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>340</X><Y>0</Y></Point>
+						<Point><X>110</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<DensityMap>
-					<Id>1773162458179</Id>
+					<Id>1773339981329</Id>
 					<Name><![CDATA[densityMap]]></Name>
-					<X>2155</X><Y>180</Y>
+					<X>1150</X><Y>30</Y>
 					<Label><X>-15</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -18881,6 +18865,133 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<EnableAttenuation>true</EnableAttenuation>
 					<ColorScheme>LOGARITHMIC</ColorScheme>
 				</DensityMap>
+				<Wall>
+					<Id>1773340438020</Id>
+					<Name><![CDATA[wall148]]></Name>
+					<X>1010</X><Y>280</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>-5</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>-5</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>-2.941</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>22.059</Y><Z>0</Z></Point>
+						<Point><X>5</X><Y>20</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340465017</Id>
+					<Name><![CDATA[wall149]]></Name>
+					<X>1030</X><Y>-85.592</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-24.408</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0.592</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>-24.408</Y><Z>0</Z></Point>
+						<Point><X>-110</X><Y>-24.408</Y><Z>0</Z></Point>
+						<Point><X>-85</X><Y>-24.408</Y><Z>0</Z></Point>
+						<Point><X>-110</X><Y>0.592</Y><Z>0</Z></Point>
+						<Point><X>-110</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-110</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>-130</X><Y>-24.408</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340494176</Id>
+					<Name><![CDATA[wall150]]></Name>
+					<X>100</X><Y>-0.861</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-24.139</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0.861</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>-24.139</Y><Z>0</Z></Point>
+						<Point><X>150</X><Y>-24.139</Y><Z>0</Z></Point>
+						<Point><X>125</X><Y>-24.139</Y><Z>0</Z></Point>
+						<Point><X>150</X><Y>0.861</Y><Z>0</Z></Point>
+						<Point><X>150</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>150</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>130</X><Y>-24.139</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340517820</Id>
+					<Name><![CDATA[wall151]]></Name>
+					<X>88.86</X><Y>255</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>15</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-10</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>15</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>15</Y><Z>0</Z></Point>
+						<Point><X>141.14</X><Y>15</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>-10</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>0.028</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>25.028</Y><Z>0</Z></Point>
+						<Point><X>141.14000035504029</X><Y>0.02378668598736685</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
 			</Presentation>
 
 				</Level>
@@ -18989,7 +19100,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Variable Class="CollectionVariable">
 					<Id>1773159480596</Id>
 					<Name><![CDATA[exits]]></Name>
-					<X>80</X><Y>670</Y>
+					<X>120</X><Y>390</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18999,7 +19110,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<ElementClass><![CDATA[TargetLine]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ Exit_IB_L, Exit_IB_R, Exit_ID_L, Exit_ID_R }]]></Code>
+							<Code><![CDATA[{ Exit_IB_L, Exit_IB_R, Exit_ID_L, Exit_ID_R, exitRoundDoor }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -19009,7 +19120,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159480673</Id>
 					<Name><![CDATA[connector7]]></Name>
-					<X>90</X><Y>730</Y>
+					<X>130</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19042,7 +19153,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159768980</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>-40</X><Y>0</Y>
+					<X>0</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19075,7 +19186,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159768982</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>-40</X><Y>0</Y>
+					<X>0</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19108,7 +19219,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159768984</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>-40</X><Y>0</Y>
+					<X>0</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19141,7 +19252,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159768986</Id>
 					<Name><![CDATA[connector8]]></Name>
-					<X>-40</X><Y>0</Y>
+					<X>0</X><Y>-280</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19174,7 +19285,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159805234</Id>
 					<Name><![CDATA[connector]]></Name>
-					<X>320</X><Y>730</Y>
+					<X>360</X><Y>450</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19207,7 +19318,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159808831</Id>
 					<Name><![CDATA[connector1]]></Name>
-					<X>320</X><Y>750</Y>
+					<X>360</X><Y>470</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19240,7 +19351,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159813628</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>320</X><Y>770</Y>
+					<X>360</X><Y>490</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19273,7 +19384,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Connector>
 					<Id>1773159817379</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>320</X><Y>790</Y>
+					<X>360</X><Y>510</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19303,6 +19414,72 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Point><X>150</X><Y>90</Y></Point>
 					</Points>
 				</Connector>
+				<Connector>
+					<Id>1773340192191</Id>
+					<Name><![CDATA[connector9]]></Name>
+					<X>0</X><Y>-210</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E04]]></ClassName>
+						<ItemName><![CDATA[evacuate_RoundDoor]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedSink]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E04]]></ClassName>
+						<ItemName><![CDATA[pedGoTo_RoundDoor]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedGoTo]]></ClassName>
+						<ItemName><![CDATA[out]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>620</X><Y>880</Y></Point>
+						<Point><X>550</X><Y>880</Y></Point>
+					</Points>
+				</Connector>
+				<Connector>
+					<Id>1773340229690</Id>
+					<Name><![CDATA[connector10]]></Name>
+					<X>360</X><Y>530</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<SourceEmbeddedObjectReference>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E04]]></ClassName>
+						<ItemName><![CDATA[pedChooseExit]]></ItemName>
+					</SourceEmbeddedObjectReference>
+					<SourceConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedSelectOutput]]></ClassName>
+						<ItemName><![CDATA[out5]]></ItemName>
+					</SourceConnectableItemReference>
+					<TargetEmbeddedObjectReference>
+						<PackageName><![CDATA[evakuierung]]></PackageName>
+						<ClassName><![CDATA[Floor_E04]]></ClassName>
+						<ItemName><![CDATA[pedGoTo_RoundDoor]]></ItemName>
+					</TargetEmbeddedObjectReference>
+					<TargetConnectableItemReference>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedGoTo]]></ClassName>
+						<ItemName><![CDATA[in]]></ItemName>
+					</TargetConnectableItemReference>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>150</X><Y>140</Y></Point>
+					</Points>
+				</Connector>
 			</Connectors>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
@@ -19310,7 +19487,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1773159480599</Id>
 					<Name><![CDATA[getDistanceTo]]></Name>
-					<X>240</X><Y>640</Y>
+					<X>120</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19330,7 +19507,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<ReturnType><![CDATA[int]]></ReturnType>
 					<Id>1773159480601</Id>
 					<Name><![CDATA[getExit]]></Name>
-					<X>350</X><Y>640</Y>
+					<X>230</X><Y>330</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19361,7 +19538,7 @@ return exits.indexOf(line)+1;]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1773159480603</Id>
 					<Name><![CDATA[acceptPedsFromRooms]]></Name>
-					<X>80</X><Y>640</Y>
+					<X>120</X><Y>360</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19529,7 +19706,7 @@ pedEnterFromRoom.take(ped);]]></Body>
 				<EmbeddedObject>
 					<Id>1773159480613</Id>
 					<Name><![CDATA[pedChooseExit]]></Name>
-					<X>290</X><Y>730</Y>
+					<X>330</X><Y>450</Y>
 					<Label><X>-35</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19657,81 +19834,9 @@ pedEnterFromRoom.take(ped);]]></Body>
 					</QuantityColumn>
 				</EmbeddedObject>
 				<EmbeddedObject>
-					<Id>1773159480637</Id>
-					<Name><![CDATA[pedestriansInFloor]]></Name>
-					<X>80</X><Y>580</Y>
-					<Label><X>10</X><Y>-5</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<ActiveObjectClass>
-						<PackageName><![CDATA[evakuierung]]></PackageName>
-						<ClassName><![CDATA[Pedestrian]]></ClassName>
-					</ActiveObjectClass>
-					<GenericParameterSubstitute>
-						<GenericParameterSubstituteReference>
-							<PackageName><![CDATA[evakuierung]]></PackageName>
-							<ClassName><![CDATA[Pedestrian]]></ClassName>
-							<ItemName><![CDATA[1772028769382]]></ItemName>
-						</GenericParameterSubstituteReference>
-					</GenericParameterSubstitute>
-					<Parameters>
-						<Parameter>
-							<Name><![CDATA[x_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[y_pos]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[startTime]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[comfortableSpeed]]></Name>
-						</Parameter>
-						<Parameter>
-							<Name><![CDATA[currentSpeed]]></Name>
-						</Parameter>
-					</Parameters>
-					<ReplicationFlag>true</ReplicationFlag>
-					<Replication Class="CodeValue">
-						<Code><![CDATA[100]]></Code>
-					</Replication>
-					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>
-					<InitialSpeedCode Class="CodeUnitValue">
-						<Code><![CDATA[0]]></Code>
-						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
-					</InitialSpeedCode>
-					<InitialLocationType>XYZ</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ColumnCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ColumnCode>
-					<RowCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</RowCode>
-					<LocationNameCode Class="CodeValue">
-						<Code><![CDATA[""]]></Code>
-					</LocationNameCode>
-					<InitializationType>EMPTY</InitializationType>
-					<InitializationDatabaseTableQuery>
-						<Id>1773159480635</Id>
-						<TableReference>
-						</TableReference>
-					</InitializationDatabaseTableQuery>
-					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
-					<QuantityColumn>
-					</QuantityColumn>
-				</EmbeddedObject>
-				<EmbeddedObject>
 					<Id>1773159480650</Id>
 					<Name><![CDATA[pedEnterFromRoom]]></Name>
-					<X>50</X><Y>720</Y>
+					<X>90</X><Y>440</Y>
 					<Label><X>-30</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -19867,7 +19972,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768880</Id>
 					<Name><![CDATA[pedGoTo_IB_L]]></Name>
-					<X>470</X><Y>690</Y>
+					<X>510</X><Y>410</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -19955,7 +20060,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768899</Id>
 					<Name><![CDATA[pedGoTo_IB_R]]></Name>
-					<X>470</X><Y>750</Y>
+					<X>510</X><Y>470</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20043,7 +20148,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768918</Id>
 					<Name><![CDATA[pedGoTo_ID_L]]></Name>
-					<X>470</X><Y>810</Y>
+					<X>510</X><Y>530</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20131,7 +20236,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768937</Id>
 					<Name><![CDATA[pedGoTo_ID_R]]></Name>
-					<X>470</X><Y>870</Y>
+					<X>510</X><Y>590</Y>
 					<Label><X>-10</X><Y>-20</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20219,7 +20324,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768956</Id>
 					<Name><![CDATA[evacuate_IB_L]]></Name>
-					<X>580</X><Y>700</Y>
+					<X>620</X><Y>420</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20271,7 +20376,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768963</Id>
 					<Name><![CDATA[evacuate_IB_R]]></Name>
-					<X>580</X><Y>760</Y>
+					<X>620</X><Y>480</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20323,7 +20428,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768970</Id>
 					<Name><![CDATA[evacuate_ID_L]]></Name>
-					<X>580</X><Y>820</Y>
+					<X>620</X><Y>540</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20375,7 +20480,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<EmbeddedObject>
 					<Id>1773159768977</Id>
 					<Name><![CDATA[evacuate_ID_R]]></Name>
-					<X>580</X><Y>880</Y>
+					<X>620</X><Y>600</Y>
 					<Label><X>-20</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -20417,6 +20522,149 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<InitializationType>SPECIFIED_NUMBER</InitializationType>
 					<InitializationDatabaseTableQuery>
 						<Id>1773159768975</Id>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1773340192169</Id>
+					<Name><![CDATA[pedGoTo_RoundDoor]]></Name>
+					<X>510</X><Y>660</Y>
+					<Label><X>-10</X><Y>-20</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedGoTo]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+							<ClassName><![CDATA[PedGoTo]]></ClassName>
+							<ItemName><![CDATA[1412464601103]]></ItemName>
+						</GenericParameterSubstituteReference>
+						<GenericParameterSubstituteValue Class="CodeValue">
+							<Code><![CDATA[Pedestrian]]></Code>
+						</GenericParameterSubstituteValue>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[mode]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationType]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationLine]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[exitRoundDoor]]></Code>
+							</Value>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationX]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationY]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[locationNode]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[route]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[walkInReverseDirection]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[reachTolerance]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onExit]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onCancel]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[onRemove]]></Name>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1773340192167</Id>
+						<TableReference>
+						</TableReference>
+					</InitializationDatabaseTableQuery>
+					<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>
+					<QuantityColumn>
+					</QuantityColumn>
+				</EmbeddedObject>
+				<EmbeddedObject>
+					<Id>1773340192188</Id>
+					<Name><![CDATA[evacuate_RoundDoor]]></Name>
+					<X>620</X><Y>670</Y>
+					<Label><X>-20</X><Y>-30</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<ActiveObjectClass>
+						<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+						<ClassName><![CDATA[PedSink]]></ClassName>
+					</ActiveObjectClass>
+					<GenericParameterSubstitute>
+						<GenericParameterSubstituteReference>
+							<PackageName><![CDATA[com.anylogic.libraries.pedestrian]]></PackageName>
+							<ClassName><![CDATA[PedSink]]></ClassName>
+							<ItemName><![CDATA[1412464601104]]></ItemName>
+						</GenericParameterSubstituteReference>
+					</GenericParameterSubstitute>
+					<Parameters>
+						<Parameter>
+							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from round door on E03");]]></Code>
+							</Value>
+						</Parameter>
+					</Parameters>
+					<ReplicationFlag>false</ReplicationFlag>
+					<Replication Class="CodeValue">
+						<Code><![CDATA[100]]></Code>
+					</Replication>
+					<CollectionType>ARRAY_LIST_BASED</CollectionType>
+					<InitialLocationType>XYZ</InitialLocationType>
+					<ColumnCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</ColumnCode>
+					<RowCode Class="CodeValue">
+						<Code><![CDATA[0]]></Code>
+					</RowCode>
+					<LocationNameCode Class="CodeValue">
+						<Code><![CDATA[""]]></Code>
+					</LocationNameCode>
+					<InitializationType>SPECIFIED_NUMBER</InitializationType>
+					<InitializationDatabaseTableQuery>
+						<Id>1773340192186</Id>
 						<TableReference>
 						</TableReference>
 					</InitializationDatabaseTableQuery>
@@ -24387,9 +24635,9 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773159666415</Id>
 					<Name><![CDATA[Exit_IB_L]]></Name>
-					<X>210</X><Y>-10</Y>
+					<X>220</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -24397,15 +24645,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>70</X><Y>0</Y></Point>
+						<Point><X>30</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
 					<Id>1773159666418</Id>
 					<Name><![CDATA[Exit_ID_L]]></Name>
-					<X>200</X><Y>270</Y>
+					<X>220</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -24413,15 +24661,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>70</X><Y>0</Y></Point>
+						<Point><X>30</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
 					<Id>1773159666421</Id>
 					<Name><![CDATA[Exit_ID_R]]></Name>
-					<X>990</X><Y>280</Y>
+					<X>1005</X><Y>270</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -24429,15 +24677,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>60</X><Y>0</Y></Point>
+						<Point><X>20</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
 					<Id>1773159666424</Id>
 					<Name><![CDATA[Exit_IB_R]]></Name>
-					<X>920</X><Y>-10</Y>
+					<X>945</X><Y>0</Y>
 					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -24445,15 +24693,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>159</X><Y>0</Y></Point>
+						<Point><X>80</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<DensityMap>
-					<Id>1773162470919</Id>
+					<Id>1773340007606</Id>
 					<Name><![CDATA[densityMap]]></Name>
-					<X>2120</X><Y>260</Y>
+					<X>1210</X><Y>40</Y>
 					<Label><X>-15</X><Y>-10</Y></Label>
-					<PublicFlag>true</PublicFlag>
+					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
@@ -24472,6 +24720,332 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<EnableAttenuation>true</EnableAttenuation>
 					<ColorScheme>LOGARITHMIC</ColorScheme>
 				</DensityMap>
+				<TargetLine>
+					<Id>1773340063188</Id>
+					<Name><![CDATA[exitRoundDoor]]></Name>
+					<X>1130</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-16744448</LineColor>
+					<Points>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>0</X><Y>27</Y></Point>
+					</Points>
+				</TargetLine>
+				<Wall>
+					<Id>1773340561295</Id>
+					<Name><![CDATA[wall148]]></Name>
+					<X>1004.513</X><Y>265</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>21</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>-4</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>21</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>21</X><Y>-2</Y><Z>0</Z></Point>
+						<Point><X>21</X><Y>23</Y><Z>0</Z></Point>
+						<Point><X>-3.887386814848803</X><Y>0.3702273156998861</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340604830</Id>
+					<Name><![CDATA[wall149]]></Name>
+					<X>1125</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>27</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>2</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>27</Y><Z>0</Z></Point>
+						<Point><X>-3.935</X><Y>27</Y><Z>0</Z></Point>
+						<Point><X>21.065</X><Y>27</Y><Z>0</Z></Point>
+						<Point><X>-0.3295706030327419</X><Y>2.261348483325037</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340656718</Id>
+					<Name><![CDATA[wall150]]></Name>
+					<X>945</X><Y>5.885</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>14.115</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>80</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>55</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>80</X><Y>14.115</Y><Z>0</Z></Point>
+						<Point><X>80</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>80</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>60</X><Y>-10.885</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340676510</Id>
+					<Name><![CDATA[wall151]]></Name>
+					<X>220</X><Y>5.885</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>14.115</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>5</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>14.115</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>-10.885</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340694811</Id>
+					<Name><![CDATA[wall152]]></Name>
+					<X>220</X><Y>263.233</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>11.767</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-13.233</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>11.767</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>11.767</Y><Z>0</Z></Point>
+						<Point><X>5</X><Y>11.767</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>-13.233</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>11.767</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340708633</Id>
+					<Name><![CDATA[wall153]]></Name>
+					<X>0</X><Y>70.502</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>24.498</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>-0.5019999999999989</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>24.498</Y><Z>0</Z></Point>
+						<Point><X>2.256</X><Y>24.498</Y><Z>0</Z></Point>
+						<Point><X>-22.744</X><Y>24.498</Y><Z>0</Z></Point>
+						<Point><X>-0.03652848298298039</X><Y>-0.3966643511157173</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340729577</Id>
+					<Name><![CDATA[wall154]]></Name>
+					<X>0</X><Y>134.56</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>24.976</X><Y>-1.099</Y><Z>0</Z></Point>
+						<Point><X>-24.976</X><Y>1.099</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>0.44</Y><Z>0</Z></Point>
+						<Point><X>14.976</X><Y>-0.659</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>25.44</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>25.44</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>0.44</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>25.44</Y><Z>0</Z></Point>
+						<Point><X>0.584</X><Y>25.44</Y><Z>0</Z></Point>
+						<Point><X>-24.416</X><Y>25.44</Y><Z>0</Z></Point>
+						<Point><X>-30</X><Y>25.44</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340744815</Id>
+					<Name><![CDATA[wall155]]></Name>
+					<X>0.5839999999999999</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10.584</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>14.416</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-10.584</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>-10.584</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>-10.584</X><Y>-5</Y><Z>0</Z></Point>
+						<Point><X>14.416</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-5</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340771448</Id>
+					<Name><![CDATA[wall156]]></Name>
+					<X>1113.832</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>11.168</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-13.832</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>11.168</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>11.168</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>11.168</X><Y>-5</Y><Z>0</Z></Point>
+						<Point><X>-13.832</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>1.168</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>26.168</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>15.036</X><Y>40.801</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
+				<Wall>
+					<Id>1773340823887</Id>
+					<Name><![CDATA[wall157]]></Name>
+					<X>1115</X><Y>135</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<Z>0</Z>
+					<LineColor>-3308225</LineColor>
+					<LineWidth>2</LineWidth>
+					<LineMaterial>null</LineMaterial>
+					<FillingType>HATCHED_AREA</FillingType>
+					<ZHeight>20</ZHeight>
+					<Closed>false</Closed>
+					<Points>
+						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>10</X><Y>-5</Y><Z>0</Z></Point>
+						<Point><X>-15</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>-4.513</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>20.487</X><Y>20</Y><Z>0</Z></Point>
+						<Point><X>-10</X><Y>20</Y><Z>0</Z></Point>
+					</Points>
+				</Wall>
 			</Presentation>
 
 				</Level>
@@ -24575,6 +25149,9 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Parameter>
 					<ParameterName><![CDATA[pedMaxWalkingSpeed]]></ParameterName>
 				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[stairWalkingSpeed]]></ParameterName>
+				</Parameter>
 			</Parameters>
 			<PresentationProperties>
 				<EnableZoomAndPanning>true</EnableZoomAndPanning>
@@ -24650,6 +25227,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 	<Uuid>404652e6-561a-404c-aab2-ab7415f40ef5</Uuid>
 	<Uuid>6fd6cd57-6dfe-4fc6-be0b-c74065351957</Uuid>
 	<Uuid>3325dc48-3ad4-41e3-836f-dfd0e98fe1ed</Uuid>
+	<Uuid>bb27038a-0f3a-48bb-b235-4a44066a14aa</Uuid>
 	<Uuid>3f69ef3d-706e-41a6-8af0-11658c5eef68</Uuid>
 	<Uuid>3f6fe405-e047-4304-91d6-6eee206d1106</Uuid>
 	<Uuid>820d2b51-5b4a-48e7-b0b6-e46418e3c0f2</Uuid>
@@ -24705,5 +25283,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 	<Uuid>1737c8c6-b526-4dd8-589e-ee4e205b06f4</Uuid>
 	<Uuid>6a43bef6-8b70-4253-a828-82c3ab399655</Uuid>
 	<Uuid>0a27038a-0f3a-48bb-b235-4a44066a1402</Uuid>
+	<Uuid>0a9ec2c3-5e18-4c0a-a183-fd86d9d9a08b</Uuid>
+	<Uuid>2216cdd0-177c-5678-9e88-dd8b95313334</Uuid>
 </ConvertersApplied>
 </AnyLogicWorkspace>
