@@ -4,7 +4,7 @@
 	         AnyLogic Project File
 *************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.7.202512121159" AlpVersion="8.9.7">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.8.202602251703" AlpVersion="8.9.7">
 <Model>
 	<Id>1771946744572</Id>
 	<Name><![CDATA[Evakuierung]]></Name>
@@ -112,7 +112,7 @@
 				<Variable Class="Parameter">
 					<Id>1772298642155</Id>
 					<Name><![CDATA[activeRoomProbability]]></Name>
-					<X>430</X><Y>-60</Y>
+					<X>430</X><Y>-70</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -136,7 +136,7 @@
 				<Variable Class="Parameter">
 					<Id>1773157717530</Id>
 					<Name><![CDATA[pedMinWalkingSpeed]]></Name>
-					<X>600</X><Y>-60</Y>
+					<X>600</X><Y>-70</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -161,7 +161,7 @@
 				<Variable Class="Parameter">
 					<Id>1773158463300</Id>
 					<Name><![CDATA[pedMaxWalkingSpeed]]></Name>
-					<X>600</X><Y>-30</Y>
+					<X>600</X><Y>-40</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -186,7 +186,7 @@
 				<Variable Class="Parameter">
 					<Id>1773338657691</Id>
 					<Name><![CDATA[stairWalkingSpeed]]></Name>
-					<X>750</X><Y>-60</Y>
+					<X>750</X><Y>-70</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -214,7 +214,7 @@
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1773419657529</Id>
 					<Name><![CDATA[startEvacuation]]></Name>
-					<X>430</X><Y>-30</Y>
+					<X>430</X><Y>-40</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -234,6 +234,37 @@ for(Room r:floor_E04.rooms){
 	r.releaseAll();
 }
 traceln("[Start] Starting evacuation");]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1773599210413</Id>
+					<Name><![CDATA[logStatistics]]></Name>
+					<X>430</X><Y>-10</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[endTime]]></Name>
+						<Type><![CDATA[double]]></Type>
+					</Parameter>
+					<Body><![CDATA[for (int i = 0; i<=10; i++) traceln("");
+traceln("[Finished in "+String.format("%.2f", endTime)+"]");
+traceln("[Floor E02]");
+traceln("	- Round door: "+floor_E02.usedRoundDoor);
+traceln("	- Exit IB: "+floor_E02.usedIB);
+traceln("[Floor E03]");
+traceln("	- IB (L): "+floor_E03.usedIBL);
+traceln("	- IB (R): "+floor_E03.usedIBR);
+traceln("	- ID (L): "+floor_E03.usedIDL);
+traceln("	- ID (R): "+floor_E03.usedIDR);
+traceln("[Floor E04]");
+traceln("	- IB (L): "+floor_E04.usedIBL);
+traceln("	- IB (R): "+floor_E04.usedIBR);
+traceln("	- ID (L): "+floor_E04.usedIDL);
+traceln("	- ID (R): "+floor_E04.usedIDR);
+traceln("	- Round door: "+floor_E04.usedRound);]]></Body>
 				</Function>
 			</Functions>
 			<AgentLinks>
@@ -262,7 +293,7 @@ traceln("[Start] Starting evacuation");]]></Body>
 				<EmbeddedObject>
 					<Id>1772225058663</Id>
 					<Name><![CDATA[floor_E1_6]]></Name>
-					<X>370</X><Y>-60</Y>
+					<X>370</X><Y>-70</Y>
 					<Label><X>-30</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -348,7 +379,7 @@ traceln("[Start] Starting evacuation");]]></Body>
 				<EmbeddedObject>
 					<Id>1773066097128</Id>
 					<Name><![CDATA[floor_E02]]></Name>
-					<X>310</X><Y>-60</Y>
+					<X>310</X><Y>-70</Y>
 					<Label><X>-30</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -400,7 +431,7 @@ traceln("[Start] Starting evacuation");]]></Body>
 				<EmbeddedObject>
 					<Id>1773250269686</Id>
 					<Name><![CDATA[floor_E03]]></Name>
-					<X>250</X><Y>-60</Y>
+					<X>250</X><Y>-70</Y>
 					<Label><X>-35</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1704,14 +1735,14 @@ Double y_pos = this.getY()+ped.getY();
 						<SlopeType>angle</SlopeType>	
 					</Slope>
 
-					<Width>35</Width>
-					<Height>35</Height>
+					<Width>30</Width>
+					<Height>30</Height>
 					<Rotation>0.0</Rotation>
 				</RectangleNode>
 				<Text>
 					<Id>1773071218088</Id>
 					<Name><![CDATA[identifier]]></Name>
-					<X>13</X><Y>12</Y>
+					<X>10</X><Y>10</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -8182,6 +8213,38 @@ else main.floor_E02.acceptPedsFromRooms(x_pos, y_pos, ped.startTime, ped.comfort
 			</ScaleRuler>
 			<CurrentLevel>1772043040806</CurrentLevel>
 			<ConnectionsId>1772043040801</ConnectionsId>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1773594571481</Id>
+					<Name><![CDATA[usedRoundDoor]]></Name>
+					<X>590</X><Y>-50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773594588135</Id>
+					<Name><![CDATA[usedIB]]></Name>
+					<X>720</X><Y>-50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+			</Variables>
 			<Connectors>
 				<Connector>
 					<Id>1773068258700</Id>
@@ -8635,7 +8698,11 @@ pedEnterFromRoom.take(ped);]]></Body>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from round door on E02");
-if(pedestriansInFloor.isEmpty()&&time()>100) pauseSimulation();]]></Code>
+usedRoundDoor++;
+if(pedestriansInFloor.size() == 1 && time()>100) {
+	main.logStatistics(time() - ped.startTime);
+	pauseSimulation();
+}]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -8906,7 +8973,11 @@ if(pedestriansInFloor.isEmpty()&&time()>100) pauseSimulation();]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB on E02");
-if(pedestriansInFloor.isEmpty()&&time()>100) pauseSimulation();]]></Code>
+usedIB++;
+if(pedestriansInFloor.size() == 1 && time()>100) {
+	main.logStatistics(time() - ped.startTime);
+	pauseSimulation();
+}]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -12640,7 +12711,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773068178207</Id>
 					<Name><![CDATA[Exit_Round_Door]]></Name>
-					<X>75</X><Y>40</Y>
+					<X>75</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12650,13 +12721,13 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>0</X><Y>49.65</Y></Point>
+						<Point><X>0</X><Y>30</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
 					<Id>1773068204282</Id>
 					<Name><![CDATA[Exit_IB]]></Name>
-					<X>350</X><Y>10</Y>
+					<X>340</X><Y>10</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -12666,7 +12737,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-40</X><Y>0</Y></Point>
+						<Point><X>-20</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<Wall>
@@ -13499,6 +13570,66 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 			<CurrentLevel>1772505775276</CurrentLevel>
 			<ConnectionsId>1772505775271</ConnectionsId>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1773598981778</Id>
+					<Name><![CDATA[usedIBL]]></Name>
+					<X>350</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773599022101</Id>
+					<Name><![CDATA[usedIBR]]></Name>
+					<X>420</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773599035146</Id>
+					<Name><![CDATA[usedIDL]]></Name>
+					<X>490</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773599035157</Id>
+					<Name><![CDATA[usedIDR]]></Name>
+					<X>560</X><Y>-100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1773072006366</Id>
 					<Name><![CDATA[exits]]></Name>
@@ -14544,7 +14675,8 @@ pedEnterFromRoom.take(ped);]]></Body>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB L on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB L on E03");
+usedIBL++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -14596,7 +14728,8 @@ pedEnterFromRoom.take(ped);]]></Body>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB R on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB R on E03");
+usedIBR++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -14648,7 +14781,8 @@ pedEnterFromRoom.take(ped);]]></Body>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID L on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID L on E03");
+usedIDL++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -14700,7 +14834,8 @@ pedEnterFromRoom.take(ped);]]></Body>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID R on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID R on E03");
+usedIDR++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -17384,10 +17519,10 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Point><X>0</X><Y>-14.122</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-47.45</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-33.328</Y><Z>0</Z></Point>
-						<Point><X>14.134</X><Y>-46.68</Y><Z>0</Z></Point>
-						<Point><X>31.139</X><Y>-45.754</Y><Z>0</Z></Point>
-						<Point><X>17.006</X><Y>-46.524</Y><Z>0</Z></Point>
-						<Point><X>-14.155</X><Y>-45.754</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>-47.408</Y><Z>0</Z></Point>
+						<Point><X>31.912</X><Y>-47.397</Y><Z>0</Z></Point>
+						<Point><X>6.912</X><Y>-47.439</Y><Z>0</Z></Point>
+						<Point><X>-13.382</X><Y>-47.397</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -18850,7 +18985,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773070925148</Id>
 					<Name><![CDATA[Exit_IB_L]]></Name>
-					<X>100</X><Y>-15</Y>
+					<X>105</X><Y>-15</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18860,7 +18995,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>150</X><Y>0</Y></Point>
+						<Point><X>140</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<TargetLine>
@@ -18898,7 +19033,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773071037500</Id>
 					<Name><![CDATA[Exit_IB_R]]></Name>
-					<X>920</X><Y>-100</Y>
+					<X>930</X><Y>-100</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -18908,7 +19043,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<LineColor>-16744448</LineColor>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>110</X><Y>0</Y></Point>
+						<Point><X>90</X><Y>0</Y></Point>
 					</Points>
 				</TargetLine>
 				<DensityMap>
@@ -19051,15 +19186,15 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>15</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-10</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>15</Y><Z>0</Z></Point>
-						<Point><X>166.14</X><Y>15</Y><Z>0</Z></Point>
-						<Point><X>141.14</X><Y>15</Y><Z>0</Z></Point>
-						<Point><X>166.14</X><Y>-10</Y><Z>0</Z></Point>
-						<Point><X>166.14</X><Y>0.028</Y><Z>0</Z></Point>
-						<Point><X>166.14</X><Y>25.028</Y><Z>0</Z></Point>
-						<Point><X>141.14000035504029</X><Y>0.02378668598736685</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>19.75</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-5.25</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>19.75</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>19.75</Y><Z>0</Z></Point>
+						<Point><X>141.14</X><Y>19.75</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>-5.25</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>166.14</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>141.14</X><Y>0</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Control Type="Button">
@@ -19188,6 +19323,81 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 			<CurrentLevel>1772511198998</CurrentLevel>
 			<ConnectionsId>1772511198993</ConnectionsId>
 			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1773599135333</Id>
+					<Name><![CDATA[usedIBL]]></Name>
+					<X>520</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773599135337</Id>
+					<Name><![CDATA[usedIBR]]></Name>
+					<X>590</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773599135339</Id>
+					<Name><![CDATA[usedIDL]]></Name>
+					<X>660</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773599135341</Id>
+					<Name><![CDATA[usedIDR]]></Name>
+					<X>730</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1773599141773</Id>
+					<Name><![CDATA[usedRound]]></Name>
+					<X>800</X><Y>-40</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1773159480596</Id>
 					<Name><![CDATA[exits]]></Name>
@@ -20435,7 +20645,8 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB L on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB L on E03");
+usedIBL++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -20487,7 +20698,8 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB R on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit IB R on E03");
+usedIBR++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -20539,7 +20751,8 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID L on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID L on E03");
+usedIDL++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -20591,7 +20804,8 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID R on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from exit ID R on E03");
+usedIDR++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -20734,7 +20948,8 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from round door on E03");]]></Code>
+								<Code><![CDATA[traceln("[Arrival] Ped evacuated in "+String.format("%.2f", time() - ped.startTime)+" seconds from round door on E03");
+usedRound++;]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -24774,7 +24989,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<TargetLine>
 					<Id>1773159666424</Id>
 					<Name><![CDATA[Exit_IB_R]]></Name>
-					<X>945</X><Y>0</Y>
+					<X>945</X><Y>-5</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -24830,7 +25045,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 				<Wall>
 					<Id>1773340561295</Id>
 					<Name><![CDATA[wall148]]></Name>
-					<X>1004.513</X><Y>265</Y>
+					<X>1000</X><Y>265</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -24845,23 +25060,23 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<Closed>false</Closed>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>24.884641397394542</X><Y>-2.3988794307088304</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>10</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-15</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>10</Y><Z>0</Z></Point>
-						<Point><X>21</X><Y>10</Y><Z>0</Z></Point>
-						<Point><X>-4</X><Y>10</Y><Z>0</Z></Point>
-						<Point><X>21</X><Y>-15</Y><Z>0</Z></Point>
-						<Point><X>21</X><Y>-2</Y><Z>0</Z></Point>
-						<Point><X>21</X><Y>23</Y><Z>0</Z></Point>
-						<Point><X>-3.887386814848803</X><Y>0.3702273156998861</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>5</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>-15</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>-2.892</Y><Z>0</Z></Point>
+						<Point><X>30</X><Y>22.108</Y><Z>0</Z></Point>
+						<Point><X>5.115</X><Y>-0.493</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1773340604830</Id>
 					<Name><![CDATA[wall149]]></Name>
-					<X>1125</X><Y>50</Y>
+					<X>1117</X><Y>45</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -24876,23 +25091,23 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 					<Closed>false</Closed>
 					<Points>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>0.23808444085970257</X><Y>24.998866290274453</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>15</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>-10</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>15</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>15</X><Y>27</Y><Z>0</Z></Point>
-						<Point><X>15</X><Y>2</Y><Z>0</Z></Point>
-						<Point><X>-10</X><Y>27</Y><Z>0</Z></Point>
-						<Point><X>-3.935</X><Y>27</Y><Z>0</Z></Point>
-						<Point><X>21.065</X><Y>27</Y><Z>0</Z></Point>
-						<Point><X>-0.3295706030327419</X><Y>2.261348483325037</Y><Z>0</Z></Point>
+						<Point><X>23</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>-2</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>23</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>23</X><Y>35</Y><Z>0</Z></Point>
+						<Point><X>23</X><Y>10</Y><Z>0</Z></Point>
+						<Point><X>-2</X><Y>35</Y><Z>0</Z></Point>
+						<Point><X>0.333</X><Y>35</Y><Z>0</Z></Point>
+						<Point><X>25.333</X><Y>35</Y><Z>0</Z></Point>
+						<Point><X>0.095</X><Y>10.001</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1773340656718</Id>
 					<Name><![CDATA[wall150]]></Name>
-					<X>945</X><Y>5.885</Y>
+					<X>940</X><Y>5.885</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -24909,21 +25124,21 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Point><X>0</X><Y>0</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>25</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>-10.885</Y><Z>0</Z></Point>
-						<Point><X>0</X><Y>14.115</Y><Z>0</Z></Point>
-						<Point><X>25</X><Y>-10.885</Y><Z>0</Z></Point>
-						<Point><X>80</X><Y>-10.885</Y><Z>0</Z></Point>
-						<Point><X>55</X><Y>-10.885</Y><Z>0</Z></Point>
-						<Point><X>80</X><Y>14.115</Y><Z>0</Z></Point>
-						<Point><X>80</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>80</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>60</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>-15.885</Y><Z>0</Z></Point>
+						<Point><X>0</X><Y>9.115</Y><Z>0</Z></Point>
+						<Point><X>25</X><Y>-15.885</Y><Z>0</Z></Point>
+						<Point><X>90</X><Y>-15.885</Y><Z>0</Z></Point>
+						<Point><X>65</X><Y>-15.885</Y><Z>0</Z></Point>
+						<Point><X>90</X><Y>9.115</Y><Z>0</Z></Point>
+						<Point><X>90</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>90</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>70</X><Y>-10.885</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1773340676510</Id>
 					<Name><![CDATA[wall151]]></Name>
-					<X>220</X><Y>5.885</Y>
+					<X>215</X><Y>5.885</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -24943,18 +25158,18 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Point><X>0</X><Y>-10.885</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>14.115</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>-10.885</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>-10.885</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>-10.885</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>14.115</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>-25</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>-10.885</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>14.115</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>-25</Y><Z>0</Z></Point>
+						<Point><X>20</X><Y>-10.885</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
 					<Id>1773340694811</Id>
 					<Name><![CDATA[wall152]]></Name>
-					<X>220</X><Y>263.233</Y>
+					<X>215</X><Y>263.233</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -24974,12 +25189,12 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 						<Point><X>0</X><Y>11.767</Y><Z>0</Z></Point>
 						<Point><X>0</X><Y>-13.233</Y><Z>0</Z></Point>
 						<Point><X>25</X><Y>11.767</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>11.767</Y><Z>0</Z></Point>
-						<Point><X>5</X><Y>11.767</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>-13.233</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>0</Y><Z>0</Z></Point>
-						<Point><X>30</X><Y>25</Y><Z>0</Z></Point>
-						<Point><X>10</X><Y>11.767</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>11.767</Y><Z>0</Z></Point>
+						<Point><X>15</X><Y>11.767</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>-13.233</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>0</Y><Z>0</Z></Point>
+						<Point><X>40</X><Y>25</Y><Z>0</Z></Point>
+						<Point><X>20</X><Y>11.767</Y><Z>0</Z></Point>
 					</Points>
 				</Wall>
 				<Wall>
@@ -25339,6 +25554,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 	<Uuid>404652e6-561a-404c-aab2-ab7415f40ef5</Uuid>
 	<Uuid>6fd6cd57-6dfe-4fc6-be0b-c74065351957</Uuid>
 	<Uuid>3325dc48-3ad4-41e3-836f-dfd0e98fe1ed</Uuid>
+	<Uuid>bb27038a-0f3a-48bb-b235-4a44066a14aa</Uuid>
 	<Uuid>3f69ef3d-706e-41a6-8af0-11658c5eef68</Uuid>
 	<Uuid>3f6fe405-e047-4304-91d6-6eee206d1106</Uuid>
 	<Uuid>820d2b51-5b4a-48e7-b0b6-e46418e3c0f2</Uuid>
@@ -25394,5 +25610,7 @@ ped.setXY(ped.x_pos, ped.y_pos);]]></Code>
 	<Uuid>1737c8c6-b526-4dd8-589e-ee4e205b06f4</Uuid>
 	<Uuid>6a43bef6-8b70-4253-a828-82c3ab399655</Uuid>
 	<Uuid>0a27038a-0f3a-48bb-b235-4a44066a1402</Uuid>
+	<Uuid>0a9ec2c3-5e18-4c0a-a183-fd86d9d9a08b</Uuid>
+	<Uuid>2216cdd0-177c-5678-9e88-dd8b95313334</Uuid>
 </ConvertersApplied>
 </AnyLogicWorkspace>
